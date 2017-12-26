@@ -1,0 +1,3650 @@
+[
+  {
+    "name": "auburn",
+    "shortcode": "auburn",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "birmingham",
+    "shortcode": "bham",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "dothan",
+    "shortcode": "dothan",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "florence / muscle shoals",
+    "shortcode": "shoals",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "gadsden-anniston",
+    "shortcode": "gadsden",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "huntsville / decatur",
+    "shortcode": "huntsville",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "mobile",
+    "shortcode": "mobile",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "montgomery",
+    "shortcode": "montgomery",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "tuscaloosa",
+    "shortcode": "tuscaloosa",
+    "state": "Alabama",
+    "subregions": []
+  },
+  {
+    "name": "anchorage / mat-su",
+    "shortcode": "anchorage",
+    "state": "Alaska",
+    "subregions": []
+  },
+  {
+    "name": "fairbanks",
+    "shortcode": "fairbanks",
+    "state": "Alaska",
+    "subregions": []
+  },
+  {
+    "name": "kenai peninsula",
+    "shortcode": "kenai",
+    "state": "Alaska",
+    "subregions": []
+  },
+  {
+    "name": "southeast alaska",
+    "shortcode": "juneau",
+    "state": "Alaska",
+    "subregions": []
+  },
+  {
+    "name": "flagstaff / sedona",
+    "shortcode": "flagstaff",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "mohave county",
+    "shortcode": "mohave",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "phoenix",
+    "shortcode": "phoenix",
+    "state": "Arizona",
+    "subregions": [
+      {
+        "name": "central/south phx",
+        "shortcode": "cph",
+        "neighborhoods": []
+      },
+      {
+        "name": "east valley",
+        "shortcode": "evl",
+        "neighborhoods": []
+      },
+      {
+        "name": "phx north",
+        "shortcode": "nph",
+        "neighborhoods": []
+      },
+      {
+        "name": "west valley",
+        "shortcode": "wvl",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "prescott",
+    "shortcode": "prescott",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "show low",
+    "shortcode": "showlow",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "sierra vista",
+    "shortcode": "sierravista",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "tucson",
+    "shortcode": "tucson",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "yuma",
+    "shortcode": "yuma",
+    "state": "Arizona",
+    "subregions": []
+  },
+  {
+    "name": "fayetteville ",
+    "shortcode": "fayar",
+    "state": "Arkansas",
+    "subregions": []
+  },
+  {
+    "name": "fort smith",
+    "shortcode": "fortsmith",
+    "state": "Arkansas",
+    "subregions": []
+  },
+  {
+    "name": "jonesboro",
+    "shortcode": "jonesboro",
+    "state": "Arkansas",
+    "subregions": []
+  },
+  {
+    "name": "little rock",
+    "shortcode": "littlerock",
+    "state": "Arkansas",
+    "subregions": []
+  },
+  {
+    "name": "texarkana",
+    "shortcode": "texarkana",
+    "state": "Arkansas",
+    "subregions": []
+  },
+  {
+    "name": "bakersfield",
+    "shortcode": "bakersfield",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "chico",
+    "shortcode": "chico",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "fresno / madera",
+    "shortcode": "fresno",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "gold country",
+    "shortcode": "goldcountry",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "hanford-corcoran",
+    "shortcode": "hanford",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "humboldt county",
+    "shortcode": "humboldt",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "imperial county",
+    "shortcode": "imperial",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "inland empire",
+    "shortcode": "inlandempire",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "los angeles",
+    "shortcode": "losangeles",
+    "state": "California",
+    "subregions": [
+      {
+        "name": "westside-southbay",
+        "shortcode": "wst",
+        "neighborhoods": []
+      },
+      {
+        "name": "SF valley",
+        "shortcode": "sfv",
+        "neighborhoods": []
+      },
+      {
+        "name": "central LA",
+        "shortcode": "lac",
+        "neighborhoods": []
+      },
+      {
+        "name": "san gabriel valley",
+        "shortcode": "sgv",
+        "neighborhoods": []
+      },
+      {
+        "name": "long beach / 562",
+        "shortcode": "lgb",
+        "neighborhoods": []
+      },
+      {
+        "name": "antelope valley",
+        "shortcode": "ant",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "mendocino county",
+    "shortcode": "mendocino",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "merced",
+    "shortcode": "merced",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "modesto",
+    "shortcode": "modesto",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "monterey bay",
+    "shortcode": "monterey",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "orange county",
+    "shortcode": "orangecounty",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "palm springs",
+    "shortcode": "palmsprings",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "redding",
+    "shortcode": "redding",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "sacramento",
+    "shortcode": "sacramento",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "san diego",
+    "shortcode": "sandiego",
+    "state": "California",
+    "subregions": [
+      {
+        "name": "city of san diego",
+        "shortcode": "csd",
+        "neighborhoods": []
+      },
+      {
+        "name": "north SD county",
+        "shortcode": "nsd",
+        "neighborhoods": []
+      },
+      {
+        "name": "east SD county",
+        "shortcode": "esd",
+        "neighborhoods": []
+      },
+      {
+        "name": "south SD county",
+        "shortcode": "ssd",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "san francisco bay area",
+    "shortcode": "sfbay",
+    "state": "California",
+    "subregions": [
+      {
+        "name": "san francisco",
+        "shortcode": "sfc",
+        "neighborhoods": [
+          {
+            "name": "alamo square / nopa",
+            "id": "149"
+          },
+          {
+            "name": "bayview",
+            "id": "110"
+          },
+          {
+            "name": "bernal heights",
+            "id": "3"
+          },
+          {
+            "name": "castro / upper market",
+            "id": "4"
+          },
+          {
+            "name": "cole valley / ashbury hts",
+            "id": "5"
+          },
+          {
+            "name": "downtown / civic / van ness",
+            "id": "6"
+          },
+          {
+            "name": "excelsior / outer mission",
+            "id": "7"
+          },
+          {
+            "name": "financial district",
+            "id": "8"
+          },
+          {
+            "name": "glen park",
+            "id": "9"
+          },
+          {
+            "name": "haight ashbury",
+            "id": "11"
+          },
+          {
+            "name": "hayes valley",
+            "id": "12"
+          },
+          {
+            "name": "ingleside / SFSU / CCSF",
+            "id": "13"
+          },
+          {
+            "name": "inner richmond",
+            "id": "14"
+          },
+          {
+            "name": "inner sunset / UCSF",
+            "id": "15"
+          },
+          {
+            "name": "laurel hts / presidio",
+            "id": "16"
+          },
+          {
+            "name": "lower haight",
+            "id": "10"
+          },
+          {
+            "name": "lower nob hill",
+            "id": "20"
+          },
+          {
+            "name": "lower pac hts",
+            "id": "24"
+          },
+          {
+            "name": "marina / cow hollow",
+            "id": "17"
+          },
+          {
+            "name": "mission district",
+            "id": "18"
+          },
+          {
+            "name": "nob hill",
+            "id": "19"
+          },
+          {
+            "name": "noe valley",
+            "id": "21"
+          },
+          {
+            "name": "north beach / telegraph hill",
+            "id": "22"
+          },
+          {
+            "name": "pacific heights",
+            "id": "23"
+          },
+          {
+            "name": "portola district",
+            "id": "164"
+          },
+          {
+            "name": "potrero hill",
+            "id": "25"
+          },
+          {
+            "name": "richmond / seacliff",
+            "id": "26"
+          },
+          {
+            "name": "russian hill",
+            "id": "27"
+          },
+          {
+            "name": "SOMA / south beach",
+            "id": "1"
+          },
+          {
+            "name": "sunset / parkside",
+            "id": "28"
+          },
+          {
+            "name": "tenderloin",
+            "id": "156"
+          },
+          {
+            "name": "treasure island",
+            "id": "157"
+          },
+          {
+            "name": "twin peaks / diamond hts",
+            "id": "29"
+          },
+          {
+            "name": "USF / panhandle",
+            "id": "2"
+          },
+          {
+            "name": "visitacion valley",
+            "id": "118"
+          },
+          {
+            "name": "west portal / forest hill",
+            "id": "114"
+          },
+          {
+            "name": "western addition",
+            "id": "30"
+          }
+        ]
+      },
+      {
+        "name": "south bay",
+        "shortcode": "sby",
+        "neighborhoods": [
+          {
+            "name": "campbell",
+            "id": "31"
+          },
+          {
+            "name": "cupertino",
+            "id": "32"
+          },
+          {
+            "name": "gilroy",
+            "id": "33"
+          },
+          {
+            "name": "hollister",
+            "id": "158"
+          },
+          {
+            "name": "los gatos",
+            "id": "34"
+          },
+          {
+            "name": "milpitas",
+            "id": "109"
+          },
+          {
+            "name": "morgan hill",
+            "id": "119"
+          },
+          {
+            "name": "mountain view",
+            "id": "35"
+          },
+          {
+            "name": "san jose downtown",
+            "id": "36"
+          },
+          {
+            "name": "san jose east",
+            "id": "37"
+          },
+          {
+            "name": "san jose north",
+            "id": "38"
+          },
+          {
+            "name": "san jose south",
+            "id": "39"
+          },
+          {
+            "name": "san jose west",
+            "id": "40"
+          },
+          {
+            "name": "santa clara",
+            "id": "41"
+          },
+          {
+            "name": "saratoga",
+            "id": "43"
+          },
+          {
+            "name": "sunnyvale",
+            "id": "44"
+          },
+          {
+            "name": "willow glen / cambrian",
+            "id": "45"
+          }
+        ]
+      },
+      {
+        "name": "east bay",
+        "shortcode": "eby",
+        "neighborhoods": [
+          {
+            "name": "alameda",
+            "id": "46"
+          },
+          {
+            "name": "albany / el cerrito",
+            "id": "47"
+          },
+          {
+            "name": "berkeley",
+            "id": "48"
+          },
+          {
+            "name": "berkeley north / hills",
+            "id": "49"
+          },
+          {
+            "name": "brentwood / oakley",
+            "id": "142"
+          },
+          {
+            "name": "concord / pleasant hill / martinez",
+            "id": "51"
+          },
+          {
+            "name": "danville / san ramon",
+            "id": "52"
+          },
+          {
+            "name": "dublin / pleasanton / livermore",
+            "id": "53"
+          },
+          {
+            "name": "emeryville",
+            "id": "112"
+          },
+          {
+            "name": "fairfield / vacaville",
+            "id": "154"
+          },
+          {
+            "name": "fremont / union city / newark",
+            "id": "54"
+          },
+          {
+            "name": "hayward / castro valley",
+            "id": "55"
+          },
+          {
+            "name": "hercules, pinole, san pablo, el sob",
+            "id": "56"
+          },
+          {
+            "name": "lafayette / orinda / moraga",
+            "id": "57"
+          },
+          {
+            "name": "oakland downtown",
+            "id": "58"
+          },
+          {
+            "name": "oakland east",
+            "id": "59"
+          },
+          {
+            "name": "oakland hills / mills",
+            "id": "60"
+          },
+          {
+            "name": "oakland lake merritt / grand",
+            "id": "61"
+          },
+          {
+            "name": "oakland north / temescal",
+            "id": "62"
+          },
+          {
+            "name": "oakland piedmont / montclair",
+            "id": "63"
+          },
+          {
+            "name": "oakland rockridge / claremont",
+            "id": "66"
+          },
+          {
+            "name": "oakland west",
+            "id": "64"
+          },
+          {
+            "name": "pittsburg / antioch",
+            "id": "113"
+          },
+          {
+            "name": "richmond / point / annex",
+            "id": "65"
+          },
+          {
+            "name": "san leandro",
+            "id": "67"
+          },
+          {
+            "name": "vallejo / benicia",
+            "id": "68"
+          },
+          {
+            "name": "walnut creek",
+            "id": "69"
+          }
+        ]
+      },
+      {
+        "name": "peninsula",
+        "shortcode": "pen",
+        "neighborhoods": [
+          {
+            "name": "atherton",
+            "id": "70"
+          },
+          {
+            "name": "belmont",
+            "id": "71"
+          },
+          {
+            "name": "brisbane",
+            "id": "73"
+          },
+          {
+            "name": "burlingame",
+            "id": "74"
+          },
+          {
+            "name": "coastside/pescadero",
+            "id": "115"
+          },
+          {
+            "name": "daly city",
+            "id": "75"
+          },
+          {
+            "name": "east palo alto",
+            "id": "76"
+          },
+          {
+            "name": "foster city",
+            "id": "77"
+          },
+          {
+            "name": "half moon bay",
+            "id": "161"
+          },
+          {
+            "name": "los altos",
+            "id": "78"
+          },
+          {
+            "name": "menlo park",
+            "id": "79"
+          },
+          {
+            "name": "millbrae",
+            "id": "80"
+          },
+          {
+            "name": "mountain view",
+            "id": "81"
+          },
+          {
+            "name": "pacifica",
+            "id": "82"
+          },
+          {
+            "name": "palo alto",
+            "id": "83"
+          },
+          {
+            "name": "portola valley",
+            "id": "163"
+          },
+          {
+            "name": "redwood city",
+            "id": "84"
+          },
+          {
+            "name": "redwood shores",
+            "id": "85"
+          },
+          {
+            "name": "san bruno",
+            "id": "86"
+          },
+          {
+            "name": "san carlos",
+            "id": "87"
+          },
+          {
+            "name": "san mateo",
+            "id": "88"
+          },
+          {
+            "name": "south san francisco",
+            "id": "89"
+          },
+          {
+            "name": "woodside",
+            "id": "162"
+          }
+        ]
+      },
+      {
+        "name": "north bay",
+        "shortcode": "nby",
+        "neighborhoods": [
+          {
+            "name": "corte madera",
+            "id": "91"
+          },
+          {
+            "name": "fairfax",
+            "id": "92"
+          },
+          {
+            "name": "greenbrae",
+            "id": "93"
+          },
+          {
+            "name": "healdsburg / windsor",
+            "id": "155"
+          },
+          {
+            "name": "kentfield / ross",
+            "id": "94"
+          },
+          {
+            "name": "lake county",
+            "id": "152"
+          },
+          {
+            "name": "larkspur",
+            "id": "95"
+          },
+          {
+            "name": "mendocino county",
+            "id": "153"
+          },
+          {
+            "name": "mill valley",
+            "id": "96"
+          },
+          {
+            "name": "napa county",
+            "id": "97"
+          },
+          {
+            "name": "novato",
+            "id": "98"
+          },
+          {
+            "name": "petaluma",
+            "id": "99"
+          },
+          {
+            "name": "rohnert pk / cotati",
+            "id": "117"
+          },
+          {
+            "name": "russian river",
+            "id": "143"
+          },
+          {
+            "name": "san anselmo",
+            "id": "101"
+          },
+          {
+            "name": "san rafael",
+            "id": "102"
+          },
+          {
+            "name": "santa rosa",
+            "id": "103"
+          },
+          {
+            "name": "sausalito",
+            "id": "104"
+          },
+          {
+            "name": "sebastopol",
+            "id": "105"
+          },
+          {
+            "name": "sonoma",
+            "id": "106"
+          },
+          {
+            "name": "tiburon / belvedere",
+            "id": "108"
+          },
+          {
+            "name": "west marin",
+            "id": "107"
+          }
+        ]
+      },
+      {
+        "name": "santa cruz",
+        "shortcode": "scz",
+        "neighborhoods": [
+          {
+            "name": "aptos",
+            "id": "144"
+          },
+          {
+            "name": "boulder creek",
+            "id": "148"
+          },
+          {
+            "name": "capitola",
+            "id": "145"
+          },
+          {
+            "name": "santa cruz",
+            "id": "42"
+          },
+          {
+            "name": "scotts valley",
+            "id": "146"
+          },
+          {
+            "name": "soquel",
+            "id": "151"
+          },
+          {
+            "name": "watsonville",
+            "id": "147"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "san luis obispo",
+    "shortcode": "slo",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "santa barbara",
+    "shortcode": "santabarbara",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "santa maria",
+    "shortcode": "santamaria",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "siskiyou county",
+    "shortcode": "siskiyou",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "stockton",
+    "shortcode": "stockton",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "susanville",
+    "shortcode": "susanville",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "ventura county",
+    "shortcode": "ventura",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "visalia-tulare",
+    "shortcode": "visalia",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "yuba-sutter",
+    "shortcode": "yubasutter",
+    "state": "California",
+    "subregions": []
+  },
+  {
+    "name": "boulder",
+    "shortcode": "boulder",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "colorado springs",
+    "shortcode": "cosprings",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "denver",
+    "shortcode": "denver",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "eastern CO",
+    "shortcode": "eastco",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "fort collins / north CO",
+    "shortcode": "fortcollins",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "high rockies",
+    "shortcode": "rockies",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "pueblo",
+    "shortcode": "pueblo",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "western slope",
+    "shortcode": "westslope",
+    "state": "Colorado",
+    "subregions": []
+  },
+  {
+    "name": "eastern CT",
+    "shortcode": "newlondon",
+    "state": "Connecticut",
+    "subregions": []
+  },
+  {
+    "name": "hartford",
+    "shortcode": "hartford",
+    "state": "Connecticut",
+    "subregions": []
+  },
+  {
+    "name": "new haven",
+    "shortcode": "newhaven",
+    "state": "Connecticut",
+    "subregions": []
+  },
+  {
+    "name": "northwest CT",
+    "shortcode": "nwct",
+    "state": "Connecticut",
+    "subregions": []
+  },
+  {
+    "name": "delaware",
+    "shortcode": "delaware",
+    "state": "Delaware",
+    "subregions": []
+  },
+  {
+    "name": "washington",
+    "shortcode": "washingtondc",
+    "state": "District of Columbia",
+    "subregions": [
+      {
+        "name": "district of columbia",
+        "shortcode": "doc",
+        "neighborhoods": []
+      },
+      {
+        "name": "northern virginia",
+        "shortcode": "nva",
+        "neighborhoods": []
+      },
+      {
+        "name": "maryland",
+        "shortcode": "mld",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "daytona beach",
+    "shortcode": "daytona",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "florida keys",
+    "shortcode": "keys",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "fort lauderdale",
+    "shortcode": "fortlauderdale",
+    "state": "Florida",
+    "subregions": [
+      {
+        "name": "miami / dade",
+        "shortcode": "mdc",
+        "neighborhoods": []
+      },
+      {
+        "name": "broward county",
+        "shortcode": "brw",
+        "neighborhoods": []
+      },
+      {
+        "name": "palm beach co",
+        "shortcode": "pbc",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "ft myers / SW florida",
+    "shortcode": "fortmyers",
+    "state": "Florida",
+    "subregions": [
+      {
+        "name": "lee county",
+        "shortcode": "lee",
+        "neighborhoods": []
+      },
+      {
+        "name": "charlotte co",
+        "shortcode": "chl",
+        "neighborhoods": []
+      },
+      {
+        "name": "collier co",
+        "shortcode": "col",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "gainesville",
+    "shortcode": "gainesville",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "heartland florida",
+    "shortcode": "cfl",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "jacksonville",
+    "shortcode": "jacksonville",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "lakeland",
+    "shortcode": "lakeland",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "north central FL",
+    "shortcode": "lakecity",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "ocala",
+    "shortcode": "ocala",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "okaloosa / walton",
+    "shortcode": "okaloosa",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "orlando",
+    "shortcode": "orlando",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "panama city",
+    "shortcode": "panamacity",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "pensacola",
+    "shortcode": "pensacola",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "sarasota-bradenton",
+    "shortcode": "sarasota",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "south florida",
+    "shortcode": "miami",
+    "state": "Florida",
+    "subregions": [
+      {
+        "name": "miami / dade",
+        "shortcode": "mdc",
+        "neighborhoods": []
+      },
+      {
+        "name": "broward county",
+        "shortcode": "brw",
+        "neighborhoods": []
+      },
+      {
+        "name": "palm beach co",
+        "shortcode": "pbc",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "space coast",
+    "shortcode": "spacecoast",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "st augustine",
+    "shortcode": "staugustine",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "tallahassee",
+    "shortcode": "tallahassee",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "tampa bay area",
+    "shortcode": "tampa",
+    "state": "Florida",
+    "subregions": [
+      {
+        "name": "hernando co",
+        "shortcode": "hdo",
+        "neighborhoods": []
+      },
+      {
+        "name": "hillsborough co",
+        "shortcode": "hil",
+        "neighborhoods": []
+      },
+      {
+        "name": "pasco co",
+        "shortcode": "psc",
+        "neighborhoods": []
+      },
+      {
+        "name": "pinellas co",
+        "shortcode": "pnl",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "treasure coast",
+    "shortcode": "treasure",
+    "state": "Florida",
+    "subregions": []
+  },
+  {
+    "name": "west palm beach",
+    "shortcode": "westpalmbeach",
+    "state": "Florida",
+    "subregions": [
+      {
+        "name": "miami / dade",
+        "shortcode": "mdc",
+        "neighborhoods": []
+      },
+      {
+        "name": "broward county",
+        "shortcode": "brw",
+        "neighborhoods": []
+      },
+      {
+        "name": "palm beach co",
+        "shortcode": "pbc",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "albany ",
+    "shortcode": "albanyga",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "athens",
+    "shortcode": "athensga",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "atlanta",
+    "shortcode": "atlanta",
+    "state": "Georgia",
+    "subregions": [
+      {
+        "name": "atlanta",
+        "shortcode": "atl",
+        "neighborhoods": []
+      },
+      {
+        "name": "otp north",
+        "shortcode": "nat",
+        "neighborhoods": []
+      },
+      {
+        "name": "otp east",
+        "shortcode": "eat",
+        "neighborhoods": []
+      },
+      {
+        "name": "otp south",
+        "shortcode": "sat",
+        "neighborhoods": []
+      },
+      {
+        "name": "otp west",
+        "shortcode": "wat",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "augusta",
+    "shortcode": "augusta",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "brunswick",
+    "shortcode": "brunswick",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "columbus ",
+    "shortcode": "columbusga",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "macon / warner robins",
+    "shortcode": "macon",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "northwest GA",
+    "shortcode": "nwga",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "savannah / hinesville",
+    "shortcode": "savannah",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "statesboro",
+    "shortcode": "statesboro",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "valdosta",
+    "shortcode": "valdosta",
+    "state": "Georgia",
+    "subregions": []
+  },
+  {
+    "name": "hawaii",
+    "shortcode": "honolulu",
+    "state": "Hawaii",
+    "subregions": [
+      {
+        "name": "oahu",
+        "shortcode": "oah",
+        "neighborhoods": []
+      },
+      {
+        "name": "big island",
+        "shortcode": "big",
+        "neighborhoods": []
+      },
+      {
+        "name": "maui",
+        "shortcode": "mau",
+        "neighborhoods": []
+      },
+      {
+        "name": "kauai",
+        "shortcode": "kau",
+        "neighborhoods": []
+      },
+      {
+        "name": "molokai",
+        "shortcode": "mol",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "boise",
+    "shortcode": "boise",
+    "state": "Idaho",
+    "subregions": []
+  },
+  {
+    "name": "east idaho",
+    "shortcode": "eastidaho",
+    "state": "Idaho",
+    "subregions": []
+  },
+  {
+    "name": "lewiston / clarkston",
+    "shortcode": "lewiston",
+    "state": "Idaho",
+    "subregions": []
+  },
+  {
+    "name": "twin falls",
+    "shortcode": "twinfalls",
+    "state": "Idaho",
+    "subregions": []
+  },
+  {
+    "name": "bloomington-normal",
+    "shortcode": "bn",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "champaign urbana",
+    "shortcode": "chambana",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "chicago",
+    "shortcode": "chicago",
+    "state": "Illinois",
+    "subregions": [
+      {
+        "name": "city of chicago",
+        "shortcode": "chc",
+        "neighborhoods": []
+      },
+      {
+        "name": "north chicagoland",
+        "shortcode": "nch",
+        "neighborhoods": []
+      },
+      {
+        "name": "west chicagoland",
+        "shortcode": "wcl",
+        "neighborhoods": []
+      },
+      {
+        "name": "south chicagoland",
+        "shortcode": "sox",
+        "neighborhoods": []
+      },
+      {
+        "name": "northwest indiana",
+        "shortcode": "nwi",
+        "neighborhoods": []
+      },
+      {
+        "name": "northwest suburbs",
+        "shortcode": "nwc",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "decatur",
+    "shortcode": "decatur",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "la salle co",
+    "shortcode": "lasalle",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "mattoon-charleston",
+    "shortcode": "mattoon",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "peoria",
+    "shortcode": "peoria",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "rockford",
+    "shortcode": "rockford",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "southern illinois",
+    "shortcode": "carbondale",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "springfield ",
+    "shortcode": "springfieldil",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "western IL",
+    "shortcode": "quincy",
+    "state": "Illinois",
+    "subregions": []
+  },
+  {
+    "name": "bloomington",
+    "shortcode": "bloomington",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "evansville",
+    "shortcode": "evansville",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "fort wayne",
+    "shortcode": "fortwayne",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "indianapolis",
+    "shortcode": "indianapolis",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "kokomo",
+    "shortcode": "kokomo",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "lafayette / west lafayette",
+    "shortcode": "tippecanoe",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "muncie / anderson",
+    "shortcode": "muncie",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "richmond ",
+    "shortcode": "richmondin",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "south bend / michiana",
+    "shortcode": "southbend",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "terre haute",
+    "shortcode": "terrehaute",
+    "state": "Indiana",
+    "subregions": []
+  },
+  {
+    "name": "ames",
+    "shortcode": "ames",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "cedar rapids",
+    "shortcode": "cedarrapids",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "des moines",
+    "shortcode": "desmoines",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "dubuque",
+    "shortcode": "dubuque",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "fort dodge",
+    "shortcode": "fortdodge",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "iowa city",
+    "shortcode": "iowacity",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "mason city",
+    "shortcode": "masoncity",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "quad cities",
+    "shortcode": "quadcities",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "sioux city",
+    "shortcode": "siouxcity",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "southeast IA",
+    "shortcode": "ottumwa",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "waterloo / cedar falls",
+    "shortcode": "waterloo",
+    "state": "Iowa",
+    "subregions": []
+  },
+  {
+    "name": "lawrence",
+    "shortcode": "lawrence",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "manhattan",
+    "shortcode": "ksu",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "northwest KS",
+    "shortcode": "nwks",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "salina",
+    "shortcode": "salina",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "southeast KS",
+    "shortcode": "seks",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "southwest KS",
+    "shortcode": "swks",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "topeka",
+    "shortcode": "topeka",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "wichita",
+    "shortcode": "wichita",
+    "state": "Kansas",
+    "subregions": []
+  },
+  {
+    "name": "bowling green",
+    "shortcode": "bgky",
+    "state": "Kentucky",
+    "subregions": []
+  },
+  {
+    "name": "eastern kentucky",
+    "shortcode": "eastky",
+    "state": "Kentucky",
+    "subregions": []
+  },
+  {
+    "name": "lexington",
+    "shortcode": "lexington",
+    "state": "Kentucky",
+    "subregions": []
+  },
+  {
+    "name": "louisville",
+    "shortcode": "louisville",
+    "state": "Kentucky",
+    "subregions": []
+  },
+  {
+    "name": "owensboro",
+    "shortcode": "owensboro",
+    "state": "Kentucky",
+    "subregions": []
+  },
+  {
+    "name": "western KY",
+    "shortcode": "westky",
+    "state": "Kentucky",
+    "subregions": []
+  },
+  {
+    "name": "baton rouge",
+    "shortcode": "batonrouge",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "central louisiana",
+    "shortcode": "cenla",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "houma",
+    "shortcode": "houma",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "lafayette",
+    "shortcode": "lafayette",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "lake charles",
+    "shortcode": "lakecharles",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "monroe",
+    "shortcode": "monroe",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "new orleans",
+    "shortcode": "neworleans",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "shreveport",
+    "shortcode": "shreveport",
+    "state": "Louisiana",
+    "subregions": []
+  },
+  {
+    "name": "maine",
+    "shortcode": "maine",
+    "state": "Maine",
+    "subregions": []
+  },
+  {
+    "name": "annapolis",
+    "shortcode": "annapolis",
+    "state": "Maryland",
+    "subregions": []
+  },
+  {
+    "name": "baltimore",
+    "shortcode": "baltimore",
+    "state": "Maryland",
+    "subregions": []
+  },
+  {
+    "name": "eastern shore",
+    "shortcode": "easternshore",
+    "state": "Maryland",
+    "subregions": []
+  },
+  {
+    "name": "frederick",
+    "shortcode": "frederick",
+    "state": "Maryland",
+    "subregions": []
+  },
+  {
+    "name": "southern maryland",
+    "shortcode": "smd",
+    "state": "Maryland",
+    "subregions": []
+  },
+  {
+    "name": "western maryland",
+    "shortcode": "westmd",
+    "state": "Maryland",
+    "subregions": []
+  },
+  {
+    "name": "boston",
+    "shortcode": "boston",
+    "state": "Massachusetts",
+    "subregions": [
+      {
+        "name": "boston/camb/brook",
+        "shortcode": "gbs",
+        "neighborhoods": []
+      },
+      {
+        "name": "northwest/merrimack",
+        "shortcode": "nwb",
+        "neighborhoods": []
+      },
+      {
+        "name": "metro west",
+        "shortcode": "bmw",
+        "neighborhoods": []
+      },
+      {
+        "name": "north shore",
+        "shortcode": "nos",
+        "neighborhoods": []
+      },
+      {
+        "name": "south shore",
+        "shortcode": "sob",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "cape cod / islands",
+    "shortcode": "capecod",
+    "state": "Massachusetts",
+    "subregions": []
+  },
+  {
+    "name": "south coast",
+    "shortcode": "southcoast",
+    "state": "Massachusetts",
+    "subregions": []
+  },
+  {
+    "name": "western massachusetts",
+    "shortcode": "westernmass",
+    "state": "Massachusetts",
+    "subregions": []
+  },
+  {
+    "name": "worcester / central MA",
+    "shortcode": "worcester",
+    "state": "Massachusetts",
+    "subregions": []
+  },
+  {
+    "name": "ann arbor",
+    "shortcode": "annarbor",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "battle creek",
+    "shortcode": "battlecreek",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "central michigan",
+    "shortcode": "centralmich",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "detroit metro",
+    "shortcode": "detroit",
+    "state": "Michigan",
+    "subregions": [
+      {
+        "name": "macomb co",
+        "shortcode": "mcb",
+        "neighborhoods": []
+      },
+      {
+        "name": "wayne co",
+        "shortcode": "wyn",
+        "neighborhoods": []
+      },
+      {
+        "name": "oakland co",
+        "shortcode": "okl",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "flint",
+    "shortcode": "flint",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "grand rapids",
+    "shortcode": "grandrapids",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "holland",
+    "shortcode": "holland",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "jackson ",
+    "shortcode": "jxn",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "kalamazoo",
+    "shortcode": "kalamazoo",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "lansing",
+    "shortcode": "lansing",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "monroe ",
+    "shortcode": "monroemi",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "muskegon",
+    "shortcode": "muskegon",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "northern michigan",
+    "shortcode": "nmi",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "port huron",
+    "shortcode": "porthuron",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "saginaw-midland-baycity",
+    "shortcode": "saginaw",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "southwest michigan",
+    "shortcode": "swmi",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "the thumb",
+    "shortcode": "thumb",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "upper peninsula",
+    "shortcode": "up",
+    "state": "Michigan",
+    "subregions": []
+  },
+  {
+    "name": "bemidji",
+    "shortcode": "bemidji",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "brainerd",
+    "shortcode": "brainerd",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "duluth / superior",
+    "shortcode": "duluth",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "mankato",
+    "shortcode": "mankato",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "minneapolis / st paul",
+    "shortcode": "minneapolis",
+    "state": "Minnesota",
+    "subregions": [
+      {
+        "name": "hennepin co",
+        "shortcode": "hnp",
+        "neighborhoods": []
+      },
+      {
+        "name": "ramsey co",
+        "shortcode": "ram",
+        "neighborhoods": []
+      },
+      {
+        "name": "anok/chis/isa",
+        "shortcode": "ank",
+        "neighborhoods": []
+      },
+      {
+        "name": "washington/WI",
+        "shortcode": "wsh",
+        "neighborhoods": []
+      },
+      {
+        "name": "dakota/scott",
+        "shortcode": "dak",
+        "neighborhoods": []
+      },
+      {
+        "name": "carv/sher/wri",
+        "shortcode": "csw",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "rochester ",
+    "shortcode": "rmn",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "southwest MN",
+    "shortcode": "marshall",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "st cloud",
+    "shortcode": "stcloud",
+    "state": "Minnesota",
+    "subregions": []
+  },
+  {
+    "name": "gulfport / biloxi",
+    "shortcode": "gulfport",
+    "state": "Mississippi",
+    "subregions": []
+  },
+  {
+    "name": "hattiesburg",
+    "shortcode": "hattiesburg",
+    "state": "Mississippi",
+    "subregions": []
+  },
+  {
+    "name": "jackson",
+    "shortcode": "jackson",
+    "state": "Mississippi",
+    "subregions": []
+  },
+  {
+    "name": "meridian",
+    "shortcode": "meridian",
+    "state": "Mississippi",
+    "subregions": []
+  },
+  {
+    "name": "north mississippi",
+    "shortcode": "northmiss",
+    "state": "Mississippi",
+    "subregions": []
+  },
+  {
+    "name": "southwest MS",
+    "shortcode": "natchez",
+    "state": "Mississippi",
+    "subregions": []
+  },
+  {
+    "name": "columbia / jeff city",
+    "shortcode": "columbiamo",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "joplin",
+    "shortcode": "joplin",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "kansas city",
+    "shortcode": "kansascity",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "kirksville",
+    "shortcode": "kirksville",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "lake of the ozarks",
+    "shortcode": "loz",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "southeast missouri",
+    "shortcode": "semo",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "springfield",
+    "shortcode": "springfield",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "st joseph",
+    "shortcode": "stjoseph",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "st louis",
+    "shortcode": "stlouis",
+    "state": "Missouri",
+    "subregions": []
+  },
+  {
+    "name": "billings",
+    "shortcode": "billings",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "bozeman",
+    "shortcode": "bozeman",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "butte",
+    "shortcode": "butte",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "great falls",
+    "shortcode": "greatfalls",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "helena",
+    "shortcode": "helena",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "kalispell",
+    "shortcode": "kalispell",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "missoula",
+    "shortcode": "missoula",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "eastern montana",
+    "shortcode": "montana",
+    "state": "Montana",
+    "subregions": []
+  },
+  {
+    "name": "grand island",
+    "shortcode": "grandisland",
+    "state": "Nebraska",
+    "subregions": []
+  },
+  {
+    "name": "lincoln",
+    "shortcode": "lincoln",
+    "state": "Nebraska",
+    "subregions": []
+  },
+  {
+    "name": "north platte",
+    "shortcode": "northplatte",
+    "state": "Nebraska",
+    "subregions": []
+  },
+  {
+    "name": "omaha / council bluffs",
+    "shortcode": "omaha",
+    "state": "Nebraska",
+    "subregions": []
+  },
+  {
+    "name": "scottsbluff / panhandle",
+    "shortcode": "scottsbluff",
+    "state": "Nebraska",
+    "subregions": []
+  },
+  {
+    "name": "elko",
+    "shortcode": "elko",
+    "state": "Nevada",
+    "subregions": []
+  },
+  {
+    "name": "las vegas",
+    "shortcode": "lasvegas",
+    "state": "Nevada",
+    "subregions": []
+  },
+  {
+    "name": "reno / tahoe",
+    "shortcode": "reno",
+    "state": "Nevada",
+    "subregions": []
+  },
+  {
+    "name": "new hampshire",
+    "shortcode": "nh",
+    "state": "New Hampshire",
+    "subregions": []
+  },
+  {
+    "name": "central NJ",
+    "shortcode": "cnj",
+    "state": "New Jersey",
+    "subregions": []
+  },
+  {
+    "name": "jersey shore",
+    "shortcode": "jerseyshore",
+    "state": "New Jersey",
+    "subregions": []
+  },
+  {
+    "name": "north jersey",
+    "shortcode": "newjersey",
+    "state": "New Jersey",
+    "subregions": []
+  },
+  {
+    "name": "south jersey",
+    "shortcode": "southjersey",
+    "state": "New Jersey",
+    "subregions": []
+  },
+  {
+    "name": "albuquerque",
+    "shortcode": "albuquerque",
+    "state": "New Mexico",
+    "subregions": []
+  },
+  {
+    "name": "clovis / portales",
+    "shortcode": "clovis",
+    "state": "New Mexico",
+    "subregions": []
+  },
+  {
+    "name": "farmington",
+    "shortcode": "farmington",
+    "state": "New Mexico",
+    "subregions": []
+  },
+  {
+    "name": "las cruces",
+    "shortcode": "lascruces",
+    "state": "New Mexico",
+    "subregions": []
+  },
+  {
+    "name": "roswell / carlsbad",
+    "shortcode": "roswell",
+    "state": "New Mexico",
+    "subregions": []
+  },
+  {
+    "name": "santa fe / taos",
+    "shortcode": "santafe",
+    "state": "New Mexico",
+    "subregions": []
+  },
+  {
+    "name": "albany",
+    "shortcode": "albany",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "binghamton",
+    "shortcode": "binghamton",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "buffalo",
+    "shortcode": "buffalo",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "catskills",
+    "shortcode": "catskills",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "chautauqua",
+    "shortcode": "chautauqua",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "elmira-corning",
+    "shortcode": "elmira",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "finger lakes",
+    "shortcode": "fingerlakes",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "glens falls",
+    "shortcode": "glensfalls",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "hudson valley",
+    "shortcode": "hudsonvalley",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "ithaca",
+    "shortcode": "ithaca",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "long island",
+    "shortcode": "longisland",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "new york city",
+    "shortcode": "newyork",
+    "state": "New York",
+    "subregions": [
+      {
+        "name": "manhattan",
+        "shortcode": "mnh",
+        "neighborhoods": [
+          {
+            "name": "Battery Park",
+            "id": "120"
+          },
+          {
+            "name": "Chelsea",
+            "id": "134"
+          },
+          {
+            "name": "Chinatown / Lit Italy",
+            "id": "160"
+          },
+          {
+            "name": "Downtown",
+            "id": "121"
+          },
+          {
+            "name": "East Harlem",
+            "id": "159"
+          },
+          {
+            "name": "East Village",
+            "id": "129"
+          },
+          {
+            "name": "Financial District",
+            "id": "122"
+          },
+          {
+            "name": "Flatiron",
+            "id": "133"
+          },
+          {
+            "name": "Gramercy",
+            "id": "132"
+          },
+          {
+            "name": "Greenwich Village",
+            "id": "127"
+          },
+          {
+            "name": "Harlem / Morningside",
+            "id": "141"
+          },
+          {
+            "name": "Inwood / Wash Hts",
+            "id": "140"
+          },
+          {
+            "name": "Lower East Side",
+            "id": "126"
+          },
+          {
+            "name": "Midtown",
+            "id": "135"
+          },
+          {
+            "name": "Midtown East",
+            "id": "136"
+          },
+          {
+            "name": "Midtown West",
+            "id": "137"
+          },
+          {
+            "name": "Murray Hill",
+            "id": "131"
+          },
+          {
+            "name": "Nolita / Bowery",
+            "id": "125"
+          },
+          {
+            "name": "SoHo",
+            "id": "124"
+          },
+          {
+            "name": "TriBeCa",
+            "id": "123"
+          },
+          {
+            "name": "Union Square",
+            "id": "130"
+          },
+          {
+            "name": "Upper East Side",
+            "id": "139"
+          },
+          {
+            "name": "Upper West Side",
+            "id": "138"
+          },
+          {
+            "name": "West Village",
+            "id": "128"
+          }
+        ]
+      },
+      {
+        "name": "brooklyn",
+        "shortcode": "brk",
+        "neighborhoods": []
+      },
+      {
+        "name": "queens",
+        "shortcode": "que",
+        "neighborhoods": []
+      },
+      {
+        "name": "bronx",
+        "shortcode": "brx",
+        "neighborhoods": []
+      },
+      {
+        "name": "staten island",
+        "shortcode": "stn",
+        "neighborhoods": []
+      },
+      {
+        "name": "new jersey",
+        "shortcode": "jsy",
+        "neighborhoods": []
+      },
+      {
+        "name": "long island",
+        "shortcode": "lgi",
+        "neighborhoods": []
+      },
+      {
+        "name": "westchester",
+        "shortcode": "wch",
+        "neighborhoods": []
+      },
+      {
+        "name": "fairfield",
+        "shortcode": "fct",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "oneonta",
+    "shortcode": "oneonta",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "plattsburgh-adirondacks",
+    "shortcode": "plattsburgh",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "potsdam-canton-massena",
+    "shortcode": "potsdam",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "rochester",
+    "shortcode": "rochester",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "syracuse",
+    "shortcode": "syracuse",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "twin tiers NY/PA",
+    "shortcode": "twintiers",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "utica-rome-oneida",
+    "shortcode": "utica",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "watertown",
+    "shortcode": "watertown",
+    "state": "New York",
+    "subregions": []
+  },
+  {
+    "name": "asheville",
+    "shortcode": "asheville",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "boone",
+    "shortcode": "boone",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "charlotte",
+    "shortcode": "charlotte",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "eastern NC",
+    "shortcode": "eastnc",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "fayetteville",
+    "shortcode": "fayetteville",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "greensboro",
+    "shortcode": "greensboro",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "hickory / lenoir",
+    "shortcode": "hickory",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "jacksonville ",
+    "shortcode": "onslow",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "outer banks",
+    "shortcode": "outerbanks",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "raleigh / durham / CH",
+    "shortcode": "raleigh",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "wilmington",
+    "shortcode": "wilmington",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "winston-salem",
+    "shortcode": "winstonsalem",
+    "state": "North Carolina",
+    "subregions": []
+  },
+  {
+    "name": "bismarck",
+    "shortcode": "bismarck",
+    "state": "North Dakota",
+    "subregions": []
+  },
+  {
+    "name": "fargo / moorhead",
+    "shortcode": "fargo",
+    "state": "North Dakota",
+    "subregions": []
+  },
+  {
+    "name": "grand forks",
+    "shortcode": "grandforks",
+    "state": "North Dakota",
+    "subregions": []
+  },
+  {
+    "name": "north dakota",
+    "shortcode": "nd",
+    "state": "North Dakota",
+    "subregions": []
+  },
+  {
+    "name": "akron / canton",
+    "shortcode": "akroncanton",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "ashtabula",
+    "shortcode": "ashtabula",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "athens ",
+    "shortcode": "athensohio",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "chillicothe",
+    "shortcode": "chillicothe",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "cincinnati",
+    "shortcode": "cincinnati",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "cleveland",
+    "shortcode": "cleveland",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "columbus",
+    "shortcode": "columbus",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "dayton / springfield",
+    "shortcode": "dayton",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "lima / findlay",
+    "shortcode": "limaohio",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "mansfield",
+    "shortcode": "mansfield",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "sandusky",
+    "shortcode": "sandusky",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "toledo",
+    "shortcode": "toledo",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "tuscarawas co",
+    "shortcode": "tuscarawas",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "youngstown",
+    "shortcode": "youngstown",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "zanesville / cambridge",
+    "shortcode": "zanesville",
+    "state": "Ohio",
+    "subregions": []
+  },
+  {
+    "name": "lawton",
+    "shortcode": "lawton",
+    "state": "Oklahoma",
+    "subregions": []
+  },
+  {
+    "name": "northwest OK",
+    "shortcode": "enid",
+    "state": "Oklahoma",
+    "subregions": []
+  },
+  {
+    "name": "oklahoma city",
+    "shortcode": "oklahomacity",
+    "state": "Oklahoma",
+    "subregions": []
+  },
+  {
+    "name": "stillwater",
+    "shortcode": "stillwater",
+    "state": "Oklahoma",
+    "subregions": []
+  },
+  {
+    "name": "tulsa",
+    "shortcode": "tulsa",
+    "state": "Oklahoma",
+    "subregions": []
+  },
+  {
+    "name": "bend",
+    "shortcode": "bend",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "corvallis/albany",
+    "shortcode": "corvallis",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "east oregon",
+    "shortcode": "eastoregon",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "eugene",
+    "shortcode": "eugene",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "klamath falls",
+    "shortcode": "klamath",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "medford-ashland",
+    "shortcode": "medford",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "oregon coast",
+    "shortcode": "oregoncoast",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "portland",
+    "shortcode": "portland",
+    "state": "Oregon",
+    "subregions": [
+      {
+        "name": "multnomah co",
+        "shortcode": "mlt",
+        "neighborhoods": []
+      },
+      {
+        "name": "washington co",
+        "shortcode": "wsc",
+        "neighborhoods": []
+      },
+      {
+        "name": "clark/cowlitz",
+        "shortcode": "clk",
+        "neighborhoods": []
+      },
+      {
+        "name": "clackamas co",
+        "shortcode": "clc",
+        "neighborhoods": []
+      },
+      {
+        "name": "north coast",
+        "shortcode": "nco",
+        "neighborhoods": []
+      },
+      {
+        "name": "yamhill co",
+        "shortcode": "yam",
+        "neighborhoods": []
+      },
+      {
+        "name": "columbia gorge",
+        "shortcode": "grg",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "roseburg",
+    "shortcode": "roseburg",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "salem",
+    "shortcode": "salem",
+    "state": "Oregon",
+    "subregions": []
+  },
+  {
+    "name": "altoona-johnstown",
+    "shortcode": "altoona",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "cumberland valley",
+    "shortcode": "chambersburg",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "erie",
+    "shortcode": "erie",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "harrisburg",
+    "shortcode": "harrisburg",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "lancaster",
+    "shortcode": "lancaster",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "lehigh valley",
+    "shortcode": "allentown",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "meadville",
+    "shortcode": "meadville",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "philadelphia",
+    "shortcode": "philadelphia",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "pittsburgh",
+    "shortcode": "pittsburgh",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "poconos",
+    "shortcode": "poconos",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "reading",
+    "shortcode": "reading",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "scranton / wilkes-barre",
+    "shortcode": "scranton",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "state college",
+    "shortcode": "pennstate",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "williamsport",
+    "shortcode": "williamsport",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "york",
+    "shortcode": "york",
+    "state": "Pennsylvania",
+    "subregions": []
+  },
+  {
+    "name": "rhode island",
+    "shortcode": "providence",
+    "state": "Rhode Island",
+    "subregions": []
+  },
+  {
+    "name": "charleston",
+    "shortcode": "charleston",
+    "state": "South Carolina",
+    "subregions": []
+  },
+  {
+    "name": "columbia",
+    "shortcode": "columbia",
+    "state": "South Carolina",
+    "subregions": []
+  },
+  {
+    "name": "florence",
+    "shortcode": "florencesc",
+    "state": "South Carolina",
+    "subregions": []
+  },
+  {
+    "name": "greenville / upstate",
+    "shortcode": "greenville",
+    "state": "South Carolina",
+    "subregions": []
+  },
+  {
+    "name": "hilton head",
+    "shortcode": "hiltonhead",
+    "state": "South Carolina",
+    "subregions": []
+  },
+  {
+    "name": "myrtle beach",
+    "shortcode": "myrtlebeach",
+    "state": "South Carolina",
+    "subregions": []
+  },
+  {
+    "name": "northeast SD",
+    "shortcode": "nesd",
+    "state": "South Dakota",
+    "subregions": []
+  },
+  {
+    "name": "pierre / central SD",
+    "shortcode": "csd",
+    "state": "South Dakota",
+    "subregions": []
+  },
+  {
+    "name": "rapid city / west SD",
+    "shortcode": "rapidcity",
+    "state": "South Dakota",
+    "subregions": []
+  },
+  {
+    "name": "sioux falls / SE SD",
+    "shortcode": "siouxfalls",
+    "state": "South Dakota",
+    "subregions": []
+  },
+  {
+    "name": "south dakota",
+    "shortcode": "sd",
+    "state": "South Dakota",
+    "subregions": []
+  },
+  {
+    "name": "chattanooga",
+    "shortcode": "chattanooga",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "clarksville",
+    "shortcode": "clarksville",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "cookeville",
+    "shortcode": "cookeville",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "jackson  ",
+    "shortcode": "jacksontn",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "knoxville",
+    "shortcode": "knoxville",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "memphis",
+    "shortcode": "memphis",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "nashville",
+    "shortcode": "nashville",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "tri-cities",
+    "shortcode": "tricities",
+    "state": "Tennessee",
+    "subregions": []
+  },
+  {
+    "name": "abilene",
+    "shortcode": "abilene",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "amarillo",
+    "shortcode": "amarillo",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "austin",
+    "shortcode": "austin",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "beaumont / port arthur",
+    "shortcode": "beaumont",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "brownsville",
+    "shortcode": "brownsville",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "college station",
+    "shortcode": "collegestation",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "corpus christi",
+    "shortcode": "corpuschristi",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "dallas / fort worth",
+    "shortcode": "dallas",
+    "state": "Texas",
+    "subregions": [
+      {
+        "name": "dallas",
+        "shortcode": "dal",
+        "neighborhoods": []
+      },
+      {
+        "name": "fort worth",
+        "shortcode": "ftw",
+        "neighborhoods": []
+      },
+      {
+        "name": "mid cities",
+        "shortcode": "mdf",
+        "neighborhoods": []
+      },
+      {
+        "name": "north DFW",
+        "shortcode": "ndf",
+        "neighborhoods": []
+      },
+      {
+        "name": "south DFW",
+        "shortcode": "sdf",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "deep east texas",
+    "shortcode": "nacogdoches",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "del rio / eagle pass",
+    "shortcode": "delrio",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "el paso",
+    "shortcode": "elpaso",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "galveston",
+    "shortcode": "galveston",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "houston",
+    "shortcode": "houston",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "killeen / temple / ft hood",
+    "shortcode": "killeen",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "laredo",
+    "shortcode": "laredo",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "lubbock",
+    "shortcode": "lubbock",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "mcallen / edinburg",
+    "shortcode": "mcallen",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "odessa / midland",
+    "shortcode": "odessa",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "san angelo",
+    "shortcode": "sanangelo",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "san antonio",
+    "shortcode": "sanantonio",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "san marcos",
+    "shortcode": "sanmarcos",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "southwest TX",
+    "shortcode": "bigbend",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "texoma",
+    "shortcode": "texoma",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "tyler / east TX",
+    "shortcode": "easttexas",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "victoria ",
+    "shortcode": "victoriatx",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "waco",
+    "shortcode": "waco",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "wichita falls",
+    "shortcode": "wichitafalls",
+    "state": "Texas",
+    "subregions": []
+  },
+  {
+    "name": "logan",
+    "shortcode": "logan",
+    "state": "Utah",
+    "subregions": []
+  },
+  {
+    "name": "ogden-clearfield",
+    "shortcode": "ogden",
+    "state": "Utah",
+    "subregions": []
+  },
+  {
+    "name": "provo / orem",
+    "shortcode": "provo",
+    "state": "Utah",
+    "subregions": []
+  },
+  {
+    "name": "salt lake city",
+    "shortcode": "saltlakecity",
+    "state": "Utah",
+    "subregions": []
+  },
+  {
+    "name": "st george",
+    "shortcode": "stgeorge",
+    "state": "Utah",
+    "subregions": []
+  },
+  {
+    "name": "vermont",
+    "shortcode": "burlington",
+    "state": "Vermont",
+    "subregions": []
+  },
+  {
+    "name": "charlottesville",
+    "shortcode": "charlottesville",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "danville",
+    "shortcode": "danville",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "fredericksburg",
+    "shortcode": "fredericksburg",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "hampton roads",
+    "shortcode": "norfolk",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "harrisonburg",
+    "shortcode": "harrisonburg",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "lynchburg",
+    "shortcode": "lynchburg",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "new river valley",
+    "shortcode": "blacksburg",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "richmond",
+    "shortcode": "richmond",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "roanoke",
+    "shortcode": "roanoke",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "southwest VA",
+    "shortcode": "swva",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "winchester",
+    "shortcode": "winchester",
+    "state": "Virginia",
+    "subregions": []
+  },
+  {
+    "name": "bellingham",
+    "shortcode": "bellingham",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "kennewick-pasco-richland",
+    "shortcode": "kpr",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "moses lake",
+    "shortcode": "moseslake",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "olympic peninsula",
+    "shortcode": "olympic",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "pullman / moscow",
+    "shortcode": "pullman",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "seattle-tacoma",
+    "shortcode": "seattle",
+    "state": "Washington",
+    "subregions": [
+      {
+        "name": "seattle",
+        "shortcode": "see",
+        "neighborhoods": []
+      },
+      {
+        "name": "eastside",
+        "shortcode": "est",
+        "neighborhoods": []
+      },
+      {
+        "name": "snohomish co",
+        "shortcode": "sno",
+        "neighborhoods": []
+      },
+      {
+        "name": "kitsap co",
+        "shortcode": "kit",
+        "neighborhoods": []
+      },
+      {
+        "name": "tacoma",
+        "shortcode": "tac",
+        "neighborhoods": []
+      },
+      {
+        "name": "olympia",
+        "shortcode": "oly",
+        "neighborhoods": []
+      },
+      {
+        "name": "south king",
+        "shortcode": "skc",
+        "neighborhoods": []
+      }
+    ]
+  },
+  {
+    "name": "skagit / island / SJI",
+    "shortcode": "skagit",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "spokane / coeur d'alene",
+    "shortcode": "spokane",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "wenatchee",
+    "shortcode": "wenatchee",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "yakima",
+    "shortcode": "yakima",
+    "state": "Washington",
+    "subregions": []
+  },
+  {
+    "name": "charleston ",
+    "shortcode": "charlestonwv",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "eastern panhandle",
+    "shortcode": "martinsburg",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "huntington-ashland",
+    "shortcode": "huntington",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "morgantown",
+    "shortcode": "morgantown",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "northern panhandle",
+    "shortcode": "wheeling",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "parkersburg-marietta",
+    "shortcode": "parkersburg",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "southern WV",
+    "shortcode": "swv",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "west virginia (old)",
+    "shortcode": "wv",
+    "state": "West Virginia",
+    "subregions": []
+  },
+  {
+    "name": "appleton-oshkosh-FDL",
+    "shortcode": "appleton",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "eau claire",
+    "shortcode": "eauclaire",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "green bay",
+    "shortcode": "greenbay",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "janesville",
+    "shortcode": "janesville",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "kenosha-racine",
+    "shortcode": "racine",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "la crosse",
+    "shortcode": "lacrosse",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "madison",
+    "shortcode": "madison",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "milwaukee",
+    "shortcode": "milwaukee",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "northern WI",
+    "shortcode": "northernwi",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "sheboygan",
+    "shortcode": "sheboygan",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "wausau",
+    "shortcode": "wausau",
+    "state": "Wisconsin",
+    "subregions": []
+  },
+  {
+    "name": "wyoming",
+    "shortcode": "wyoming",
+    "state": "Wyoming",
+    "subregions": []
+  },
+  {
+    "name": "guam-micronesia",
+    "shortcode": "micronesia",
+    "state": "Territories",
+    "subregions": []
+  },
+  {
+    "name": "puerto rico",
+    "shortcode": "puertorico",
+    "state": "Territories",
+    "subregions": []
+  },
+  {
+    "name": "u.s. virgin islands",
+    "shortcode": "virgin",
+    "state": "Territories",
+    "subregions": []
+  }
+]
