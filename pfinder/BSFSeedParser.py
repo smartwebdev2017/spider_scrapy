@@ -3,26 +3,27 @@ __author__ = 'root'
 import csv
 import re
 from pcarfinder import PcarfinderDB
+import datetime
 
 db = PcarfinderDB()
 index = 0
 
-with open('Options.csv') as csvfile:
-    readCSV = csv.reader(csvfile, delimiter=',')
-
-    for row in readCSV:
-        if index > 0:
-            vin_id = row[1]
-            code = row[2]
-            try:
-
-                value = row[3] + ',' + row[4]
-            except Exception as e:
-                value = row[3]
-
-            db.insert_temp_data(vin_id, code, value)
-
-        index = index + 1
+# with open('Options.csv') as csvfile:
+#     readCSV = csv.reader(csvfile, delimiter=',')
+#
+#     for row in readCSV:
+#         if index > 0:
+#             vin_id = row[1]
+#             code = row[2]
+#             try:
+#
+#                 value = row[3] + ',' + row[4]
+#             except Exception as e:
+#                 value = row[3]
+#
+#             db.insert_temp_data(vin_id, code, value)
+#
+#         index = index + 1
 
 index = 0
 with open('VINs.csv') as seedcsvfile:
@@ -78,7 +79,8 @@ with open('VINs.csv') as seedcsvfile:
                 else:
                     db.insert_bsf_options(new_id, option[2], option[3])
             #new_id = db.insert_bsf(vin, msrp, warranty_start, model_year, model_detail, color, production_month, interior)
-            db.updateBsfById(new_id, warranty_start, production_month, color, interior)
+            d1 = datetime.datetime.strptime(production_month, '%m/%Y')
+            db.updateBsfById(new_id, warranty_start, d1, color, interior)
 
 
         index = index + 1

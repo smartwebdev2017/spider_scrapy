@@ -253,7 +253,7 @@ class RennlistSpider(BaseProductsSpider):
 
                         if retry_result is None:
                             bsf_data = self.db.getBSinfo(vin_str)
-                            bsf_id = self.db.insert_bsf(vin_str, bsf_data['msrp'], bsf_data['warranty_start'], bsf_data['model_year'], bsf_data['model_detail'], bsf_data['color'], bsf_data['production_month'], bsf_data['interior'])
+                            bsf_id = self.db.insert_bsf(vin_str, bsf_data['msrp'], bsf_data['warranty_start'], bsf_data['model_year'], bsf_data['model_detail'], bsf_data['color'], datetime.datetime.strptime(bsf_data['production_month'], '%m/%Y'), bsf_data['interior'])
                             bs_option_description = ''
 
                             for option in bsf_data['options']:

@@ -398,7 +398,7 @@ class CraigslistSpider(BaseProductsSpider):
             meta={
                 'search_term': st,
                 'remaining': sys.maxint,
-                'state':state
+                'state':self.state
             },
             dont_filter=True
         )
