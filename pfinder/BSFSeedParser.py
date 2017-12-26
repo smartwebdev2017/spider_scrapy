@@ -79,7 +79,10 @@ with open('VINs.csv') as seedcsvfile:
                 else:
                     db.insert_bsf_options(new_id, option[2], option[3])
             #new_id = db.insert_bsf(vin, msrp, warranty_start, model_year, model_detail, color, production_month, interior)
-            d1 = datetime.datetime.strptime(production_month, '%m/%Y')
+            try:
+                d1 = datetime.datetime.strptime(production_month, '%m/%Y')
+            except Exception as e:
+                d1 = None
             db.updateBsfById(new_id, warranty_start, d1, color, interior)
 
 
