@@ -49,5 +49,6 @@ STATES = {'alabama': 'AL',
     'washington': 'WA',
     'west virginia': 'WV',
     'wisconsin': 'WI',
-    'wyoming': 'WY'
+    'wyoming': 'WY',
+    'district of columbia': 'DC'
           }
