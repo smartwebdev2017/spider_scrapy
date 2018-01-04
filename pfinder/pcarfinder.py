@@ -112,12 +112,12 @@ class PcarfinderDB():
             else:
                 sql = "UPDATE api_car SET listing_make = %s, listing_model = %s, listing_trim = %s, listing_model_detail = %s, listing_year = %s, mileage = %s, city = %s, state = %s, " \
                               "price = %s, cond = %s, seller_type = %s, vhr_link = %s, listing_exterior_color = %s, listing_interior_color = %s, listing_transmission = %s, listing_transmission_detail = %s, " \
-                              "listing_title = %s, listing_url = %s, listing_engine_size = %s, listing_description = %s, sold_state = %s, sold_date = %s, listing_body_type = %s, listing_drivetrain = %s, updated = %s, active = %s " \
-                              "WHERE site_id = %s and sold_state = 0 and vin_code = %s"
+                              "listing_title = %s, listing_engine_size = %s, listing_description = %s, sold_state = %s, sold_date = %s, listing_body_type = %s, listing_drivetrain = %s, updated = %s, active = %s " \
+                              "WHERE site_id = %s and sold_state = 0 and vin_code = %s and listing_url = %s"
 
                 self.cursor.execute(sql, (listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, price, cond, seller_type, vhr_link,
-                                              listing_exterior_color, listing_interior_color, listing_transmission, listing_transmission_detail, listing_title, listing_url, listing_engine_size,
-                                              listing_description,  sold_state, sold_date, listing_body_type, listing_drivetrain, updated, active, site_id, vin_code))
+                                              listing_exterior_color, listing_interior_color, listing_transmission, listing_transmission_detail, listing_title, listing_engine_size,
+                                              listing_description,  sold_state, sold_date, listing_body_type, listing_drivetrain, updated, active, site_id, vin_code, listing_url))
                 msg = "%s is updated successfully" % vin_code
             self.conn.commit()
             print(msg)

@@ -3628,23 +3628,5 @@
     "shortcode": "wyoming",
     "state": "Wyoming",
     "subregions": []
-  },
-  {
-    "name": "guam-micronesia",
-    "shortcode": "micronesia",
-    "state": "Territories",
-    "subregions": []
-  },
-  {
-    "name": "puerto rico",
-    "shortcode": "puertorico",
-    "state": "Territories",
-    "subregions": []
-  },
-  {
-    "name": "u.s. virgin islands",
-    "shortcode": "virgin",
-    "state": "Territories",
-    "subregions": []
   }
 ]

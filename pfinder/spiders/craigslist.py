@@ -197,7 +197,8 @@ class CraigslistSpider(BaseProductsSpider):
         site = self.db.get_site_id("craigslist")
         info = {}
         active = 1
-
+        if vin_code == 'WP1AB2A51FLB72287':
+            pass
         if site is not None:
             if not vin:
                 if vin_code != '' and int(listing_year) >= 2001:
