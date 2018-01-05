@@ -224,7 +224,15 @@ class RennlistSpider(BaseProductsSpider):
             vin = self.db.check_vin_by_code(vin_str)
 
         site = self.db.get_site_id("rennlist")
-
+        try:
+            flexitems = response.xpath('//div[@class="flexitem"]')
+            for item in flexitems:
+                if item.extract().find("Closed Thread") > -1:
+                    active = 0
+                    sold_status = 1
+                    break
+        except:
+            pass
         info = {}
         if site is not None:
             if  not vin:
