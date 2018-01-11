@@ -962,7 +962,7 @@ class PcarfinderDB():
 
             if seller_type == 'Dealership' and int(mileage) < 100 and cond == 'Used':
 
-                sql = "UPDATE api_car SET  seller_type = 'New' WHERE id=%s" % (item[0])
+                sql = "UPDATE api_car SET  cond = 'New' WHERE id=%s" % (item[0])
 
                 try:
                     self.cursor.execute(sql)
