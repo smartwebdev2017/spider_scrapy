@@ -212,7 +212,7 @@ class CarMaxSpinder(BaseProductsSpider):
                     info['listing_color'] = info['ExteriorColor']
                     info['listing_description'] = description
 
-                    result = self.db.parsing_vin(info['Vin'].upper())
+                    result = self.db.parsing_vin(info['Vin'].upper(), info['Year'], model_detail)
                     info['model_number'] = result['model_number']
 
                     bsf_data = self.db.check_bsf(info['Vin'])
@@ -251,7 +251,7 @@ class CarMaxSpinder(BaseProductsSpider):
                         pcf_id = self.db.insert_parsing_pcf(info)
                         self.db.insert_car(site[0], info['Vin'].upper(), info['Make'], info['Model'], info['Trim'], model_detail, info['Year'], info['Mileage'], city, state, cur_str, info['Price'], 'Used', 'Dealership', 'https://www.carmax.com/car/' + str(info['StockNumber']) + '/vehicle-history', info['ExteriorColor'], info['InteriorColor'], transmission, '', info['Description'], product.get('url'), info['Size'], description,  isSold, '', '', info['DriveTrain'], datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
                 else:
-                    result = self.db.parsing_vin(info['Vin'].upper())
+                    result = self.db.parsing_vin(info['Vin'].upper(), info['Year'], model_detail)
                     info['listing_model_detail'] = model_detail
                     info['listing_transmission'] = transmission
                     info['bs_option_description'] = ''

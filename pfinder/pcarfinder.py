@@ -154,7 +154,7 @@ class PcarfinderDB():
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         for result in results:
-            sql = "UPDATE api_car SET sold_state = %s, sold_date = '%s' WHERE id = %s " %(1, datetime.datetime.now(), result[0])
+            sql = "UPDATE api_car SET active = 0, sold_state = %s, sold_date = '%s' WHERE id = %s " %(1, datetime.datetime.now(), result[0])
             try:
                 self.cursor.execute(sql)
                 self.conn.commit()
@@ -167,7 +167,7 @@ class PcarfinderDB():
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         for result in results:
-            sql = "UPDATE api_car SET sold_state = %s, sold_date = '%s' WHERE id = %s " %(1, datetime.datetime.now(), result[0])
+            sql = "UPDATE api_car SET active = 0, sold_state = %s, sold_date = '%s' WHERE id = %s " %(1, datetime.datetime.now(), result[0])
             try:
                 self.cursor.execute(sql)
                 self.conn.commit()
@@ -329,11 +329,113 @@ class PcarfinderDB():
 
         print(data)
         return data
+    def get_modelnumber(self, listing_year, model_str):
+        listing_model_detail = model_str.lower()
+        model_number = ''
 
-    def parsing_vin(self, vin):
-        if len(vin) < 17:
-            pass
+        try:
+            year = int(listing_year)
+
+            if year >= 1964 and year <= 1989 and listing_model_detail.find('911') > -1:
+                model_number = '911'
+
+            if year >= 1976 and year <= 1988 and listing_model_detail.find('924') > -1:
+                model_number = '924'
+
+            if year >= 1977 and year <= 1995 and listing_model_detail.find('928') > -1:
+                model_number = '928'
+
+            if year >= 1975 and year <= 1989 and (listing_model_detail.find('930') or (listing_model_detail.find('911') and listing_model_detail.find('turbo'))) > -1:
+                model_number = '930'
+
+            if year >= 1979 and year <= 1983 and listing_model_detail.find('924') and listing_model_detail.find('turbo') > -1:
+                model_number = '931'
+
+            if year >= 1982 and year <= 1991 and listing_model_detail.find('944') > -1:
+                model_number = '944'
+
+            if year >= 1985 and year <= 1991 and listing_model_detail.find('944') and listing_model_detail.find('turbo') > -1:
+                model_number = '951'
+
+            if year >= 2014 and listing_model_detail.find('macan') > -1:
+                model_number = '95B'
+
+            if year >= 1989 and year <= 1994 and (listing_model_detail.find('911') or listing_model_detail.find('964')) > -1:
+                model_number = '964'
+
+            if year >= 1992 and year <= 1995 and listing_model_detail.find('968') > -1:
+                model_number = '968'
+
+            if year >= 2009 and year <= 2013 and listing_model_detail.find('panamera') > -1:
+                model_number = '970.1'
+
+            if year >= 2014 and year <= 2016 and listing_model_detail.find('panamera') > -1:
+                model_number = '970.2'
+
+            if year >= 2017 and year <= 2023 and listing_model_detail.find('panamera') > -1:
+                model_number = '971'
+
+            if year >= 2003 and year <= 2007 and listing_model_detail.find('carrera gt') > -1:
+                model_number = '980'
+
+            if year >= 2013 and year <= 2016 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+                model_number = '981'
+
+            if year >= 2017 and year <= 2019 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+                model_number = '982'
+
+            if year >= 1997 and year <= 2004 and listing_model_detail.find('boxster') > -1:
+                model_number = '986'
+
+            if year >= 2005 and year <= 2008 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+                model_number = '987.1'
+
+            if year >= 2009 and year <= 2012 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+                model_number = '987.2'
+
+            if year >= 2014 and year <= 2016 and (listing_model_detail.find('911') or listing_model_detail.find('carrera')) > -1:
+                model_number = '991.1'
+
+            if year >= 2017 and year <= 2018 and (listing_model_detail.find('911') or listing_model_detail.find('carrera')) > -1:
+                model_number = '991.2'
+
+            if year >= 1993 and year <= 1996 and (listing_model_detail.find('911') or listing_model_detail.find('993')) > -1:
+                model_number = '993'
+
+            if year >= 1998 and year <= 2003 and (listing_model_detail.find('911') or listing_model_detail.find('996')) > -1:
+                model_number = '996'
+
+            if year >= 2005 and year <= 2008 and (listing_model_detail.find('911') or listing_model_detail.find('997')) > -1:
+                model_number = '997.1'
+
+            if year >= 2009 and year <= 2012 and (listing_model_detail.find('911') or listing_model_detail.find('997')) > -1:
+                model_number = '997.2'
+
+            if year >= 2003 and year <= 2007 and listing_model_detail.find('cayenne') > -1:
+                model_number = '955'
+
+            if year >= 2010 and year <= 2013 and listing_model_detail.find('cayenne') > -1:
+                model_number = '958.1'
+
+            if year >= 2015 and year <= 2017 and listing_model_detail.find('cayenne') > -1:
+                model_number = '958.2'
+
+        except Exception as e:
+            year = 0
+            model_number = ''
+
+        return model_number
+
+    def parsing_vin(self, vin, year, model_str):
+        model_number = ''
+        CONST_MODEL_NUMBERS = ['911', '924', '928', '930', '931', '944', '951', '95B', '964', '968', '970.1', '970.2', '971', '980','981', '982', '986', '987.1', '987.2', '991.1', '991.2', '993', '996', '997.1', '997.2', '955', '958.1', '958.2']
+
+        if (len(vin) == 0):
+            model_number = self.get_modelnumber(year, model_str)
+        elif len(vin) < 17 and len(vin) > 0:
+            return
         else:
+
             model_number = ''
             model_detail = ''
             year = 0
@@ -636,12 +738,17 @@ class PcarfinderDB():
             if model_number == '964' or year_code > 2017:
                 year = year - 30
 
-            result = {}
-            result['model_detail'] = model_detail
-            result['model_number'] = model_number
-            result['year'] =  year
+        result = {}
 
-            return result
+        #result['model_detail'] = model_detail
+        result['model_number'] = ''
+        result['year'] =  year
+        for m_number in CONST_MODEL_NUMBERS:
+            if model_number == m_number:
+                result['model_number'] = model_number
+                break
+
+        return result
     def update_parsing_pcf(self, vin_data):
         sql = "UPDATE api_pcf SET listing_age = %s WHERE id=%s " % (vin_data['listing_age'], vin_data['pcf_id'])
 
@@ -843,3 +950,70 @@ class PcarfinderDB():
                     print(e)
                     self.conn.rollback()
                     return None
+
+    def update_rennlist_cond(self):
+        sql = "SELECT * FROM api_car WHERE site_id = '%s' " %(2)
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        for item in results:
+            mileage = item[7]
+            seller_type = item[13]
+            cond = item[12]
+
+            if seller_type == 'Dealership' and int(mileage) < 100 and cond == 'Used':
+
+                sql = "UPDATE api_car SET  seller_type = 'New' WHERE id=%s" % (item[0])
+
+                try:
+                    self.cursor.execute(sql)
+                    self.conn.commit()
+                    print('%s is updated successfully' %(item[0]))
+                except Exception as e:
+                    print(e)
+                    self.conn.rollback()
+
+    def remove_scam(self):
+        sql = "SELECT * FROM api_car"
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        for item in results:
+            listing_title = item[19].lower()
+
+            if listing_title.find('scam') > -1:
+
+                sql = "DELETE FROM api_car WHERE id=%s" % (item[0])
+
+                try:
+                    self.cursor.execute(sql)
+                    self.conn.commit()
+                    print('%s is removed successfully from scam' %(item[0]))
+                except Exception as e:
+                    print(e)
+                    self.conn.rollback()
+
+    def update_model_number(self):
+        sql = "SELECT * FROM api_car"
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+
+        for item in results:
+            listing_title = item[19].lower()
+            listing_year = item[6]
+            model_detail = item[5]
+            vin_code = item[1]
+
+            if vin_code == '':
+                data = self.parsing_vin(vin_code, listing_year, model_detail)
+                pcf_id = item[29]
+
+                if data['model_number'] == '':
+                    return
+
+                sql = "UPDATE api_pcf SET  model_number = %s WHERE id=%s" % (data['model_number'], pcf_id)
+                try:
+                    self.cursor.execute(sql)
+                    self.conn.commit()
+                    print('%s is updated for model number' %(pcf_id))
+                except Exception as e:
+                    print(e)
+                    self.conn.rollback()

@@ -113,10 +113,16 @@ class CraigslistSpider(BaseProductsSpider):
         #match = re.match('(\d{4})\s{1,5}(\w+)\s{1,4}(\w+)?\s{0,4}(.*)', listing_title)
         match = re.match('(\d{0,4})\s{0,5}(\w+)\s{0,4}(\w+)?\s{0,4}(.*)', model_content)
 
-        if listing_title.lower().find('sold') > -1 or listing_title.lower().find('wtb') > -1 or listing_title.lower().find('looking') > -1 or \
+        if listing_title.lower().find('scam') > -1 or listing_title.lower().find('wtb') > -1 or listing_title.lower().find('looking') > -1 or \
                         listing_title.lower().find('want to buy') > -1 or listing_title.lower().find('searching') > -1 or listing_title.lower().find('wanted') > -1:
             return
 
+        if (listing_title.lower().find('sold') > -1):
+            active = 0
+            sold_state = 1
+        else:
+            active = 1
+            sold_state = 0
         try:
             if match is None:
                 match = re.match('\d{0,4})\s{0,5}(\w+)\s{0,4}(\w+)?\s{0,4}(.*)', model_content)
@@ -196,9 +202,7 @@ class CraigslistSpider(BaseProductsSpider):
 
         site = self.db.get_site_id("craigslist")
         info = {}
-        active = 1
-        if vin_code == 'WP1AB2A51FLB72287':
-            pass
+
         if site is not None:
             if not vin:
                 if vin_code != '' and int(listing_year) >= 2001:
@@ -217,7 +221,7 @@ class CraigslistSpider(BaseProductsSpider):
                     info['listing_transmission'] = transmission
                     info['listing_color'] = exterior_color
                     info['listing_description'] = description
-                    result = self.db.parsing_vin(vin_code.upper())
+                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model_detail)
                     info['model_number'] = result.get('model_number')
 
                     bsf_data = self.db.check_bsf(vin_code)
@@ -239,7 +243,7 @@ class CraigslistSpider(BaseProductsSpider):
                             info['bs_option_description'] = bs_option_description
                             info['gap_to_msrp'] = int(product['price'] / float(bsf_data['msrp']) * 100)
                             pcf_id = self.db.insert_parsing_pcf(info)
-                            self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
+                            self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
                     else:
                         bs_option_description = ''
                         options = self.db.get_bsf_options(bsf_data[0])
@@ -251,9 +255,9 @@ class CraigslistSpider(BaseProductsSpider):
                         info['bs_option_description'] = bs_option_description
                         info['gap_to_msrp'] = int(product['price'] / float(bsf_data[2]) * 100)
                         pcf_id = self.db.insert_parsing_pcf(info)
-                        self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
+                        self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
                 else:
-                    result = self.db.parsing_vin(vin_code.upper())
+                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model_detail)
 
                     info['Vin'] = vin_code
                     try:
@@ -285,7 +289,7 @@ class CraigslistSpider(BaseProductsSpider):
 
                     pcf_id = self.db.insert_parsing_pcf(info)
 
-                    self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
+                    self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
             else:
                 if vin_code == '':
                     row = self.db.update_car_by_url(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), 3, active)

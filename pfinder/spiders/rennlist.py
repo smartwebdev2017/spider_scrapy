@@ -155,7 +155,7 @@ class RennlistSpider(BaseProductsSpider):
             cur_time = datetime.datetime.now()
             cur_str = ("%s-%s-%s" % (cur_time.month, cur_time.day, cur_time.year))
 
-        if int(year_str)  == cur_time.year - 1 or int(year_str)  == cur_time.year:
+        if dealer_ship == 'Dealership' and int(mileage_str) < 100:
             condition = 'New'
         else:
             condition = 'Used'
@@ -213,8 +213,12 @@ class RennlistSpider(BaseProductsSpider):
             title = re.search('>\s(.*?)</h1>', title).group(1)
 
             lw_title = title.lower()
-            if (lw_title.find('wtb') > -1) or (lw_title.find('want to buy') > -1) or (lw_title.find('looking') > -1) or (lw_title.find('searching') > -1) or (lw_title.find('wanted') > -1) or (lw_title.find('sold') > -1):
+            if (lw_title.find('wtb') > -1) or (lw_title.find('want to buy') > -1) or (lw_title.find('looking') > -1) or (lw_title.find('searching') > -1) or (lw_title.find('wanted') > -1) or (lw_title.find('scam') > -1):
                 return
+
+            if (lw_title.find('sold') > -1):
+                active = 0
+                sold_status = 1
         except:
             title = ''
 
@@ -251,7 +255,7 @@ class RennlistSpider(BaseProductsSpider):
                     info['listing_transmission'] = transmission_str
                     info['listing_color'] = color_str
                     info['listing_description'] = description
-                    result = self.db.parsing_vin(vin_str.upper())
+                    result = self.db.parsing_vin(vin_str.upper(), year_str, model_str)
                     info['model_number'] = result['model_number']
 
                     bsf_data = self.db.check_bsf(vin_str)
@@ -287,7 +291,7 @@ class RennlistSpider(BaseProductsSpider):
                         pcf_id = self.db.insert_parsing_pcf(info)
                         self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', cont_str, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
                 else:
-                    result = self.db.parsing_vin(vin_str.upper())
+                    result = self.db.parsing_vin(vin_str.upper(), year_str, model_str)
 
                     info['Vin'] = vin_str
                     info['Year'] = year_str
