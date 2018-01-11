@@ -960,7 +960,7 @@ class PcarfinderDB():
             seller_type = item[13]
             cond = item[12]
 
-            if seller_type == 'Dealership' and int(mileage) < 100 and cond == 'Used':
+            if seller_type == 'Dealership' and int(mileage) < 100 and cond == 'Used' and int(mileage) > 0:
 
                 sql = "UPDATE api_car SET  cond = 'New' WHERE id=%s" % (item[0])
 
