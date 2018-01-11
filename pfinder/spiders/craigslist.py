@@ -221,7 +221,7 @@ class CraigslistSpider(BaseProductsSpider):
                     info['listing_transmission'] = transmission
                     info['listing_color'] = exterior_color
                     info['listing_description'] = description
-                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model_detail)
+                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model)
                     info['model_number'] = result.get('model_number')
 
                     bsf_data = self.db.check_bsf(vin_code)
@@ -257,7 +257,7 @@ class CraigslistSpider(BaseProductsSpider):
                         pcf_id = self.db.insert_parsing_pcf(info)
                         self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
                 else:
-                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model_detail)
+                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model)
 
                     info['Vin'] = vin_code
                     try:

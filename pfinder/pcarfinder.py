@@ -1000,9 +1000,12 @@ class PcarfinderDB():
             listing_title = item[19].lower()
             listing_year = item[6]
             model_detail = item[5]
+            site_id = item[30]
             vin_code = item[1]
 
             if vin_code == '':
+                if site_id == 3:
+                    model_detail = item[3]
                 data = self.parsing_vin(vin_code, listing_year, model_detail)
                 pcf_id = item[29]
 
