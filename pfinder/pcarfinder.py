@@ -345,22 +345,22 @@ class PcarfinderDB():
             if year >= 1977 and year <= 1995 and listing_model_detail.find('928') > -1:
                 model_number = '928'
 
-            if year >= 1975 and year <= 1989 and (listing_model_detail.find('930') or (listing_model_detail.find('911') and listing_model_detail.find('turbo'))) > -1:
+            if year >= 1975 and year <= 1989 and (listing_model_detail.find('930') > -1 or (listing_model_detail.find('911') > -1 and listing_model_detail.find('turbo') > -1)):
                 model_number = '930'
 
-            if year >= 1979 and year <= 1983 and listing_model_detail.find('924') and listing_model_detail.find('turbo') > -1:
+            if year >= 1979 and year <= 1983 and listing_model_detail.find('924') > -1 and listing_model_detail.find('turbo') > -1:
                 model_number = '931'
 
             if year >= 1982 and year <= 1991 and listing_model_detail.find('944') > -1:
                 model_number = '944'
 
-            if year >= 1985 and year <= 1991 and listing_model_detail.find('944') and listing_model_detail.find('turbo') > -1:
+            if year >= 1985 and year <= 1991 and listing_model_detail.find('944') > -1 and listing_model_detail.find('turbo') > -1:
                 model_number = '951'
 
             if year >= 2014 and listing_model_detail.find('macan') > -1:
                 model_number = '95B'
 
-            if year >= 1989 and year <= 1994 and (listing_model_detail.find('911') or listing_model_detail.find('964')) > -1:
+            if year >= 1989 and year <= 1994 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('964') > -1):
                 model_number = '964'
 
             if year >= 1992 and year <= 1995 and listing_model_detail.find('968') > -1:
@@ -378,37 +378,37 @@ class PcarfinderDB():
             if year >= 2003 and year <= 2007 and listing_model_detail.find('carrera gt') > -1:
                 model_number = '980'
 
-            if year >= 2013 and year <= 2016 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+            if year >= 2013 and year <= 2016 and (listing_model_detail.find('cayman') > -1 or listing_model_detail.find('boxster') > -1):
                 model_number = '981'
 
-            if year >= 2017 and year <= 2019 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+            if year >= 2017 and year <= 2019 and (listing_model_detail.find('cayman') > -1 or listing_model_detail.find('boxster') > -1):
                 model_number = '982'
 
             if year >= 1997 and year <= 2004 and listing_model_detail.find('boxster') > -1:
                 model_number = '986'
 
-            if year >= 2005 and year <= 2008 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+            if year >= 2005 and year <= 2008 and (listing_model_detail.find('cayman') > -1 or listing_model_detail.find('boxster') > -1):
                 model_number = '987.1'
 
-            if year >= 2009 and year <= 2012 and (listing_model_detail.find('cayman') or listing_model_detail.find('boxster')) > -1:
+            if year >= 2009 and year <= 2012 and (listing_model_detail.find('cayman') > -1 or listing_model_detail.find('boxster') > -1):
                 model_number = '987.2'
 
-            if year >= 2014 and year <= 2016 and (listing_model_detail.find('911') or listing_model_detail.find('carrera')) > -1:
+            if year >= 2014 and year <= 2016 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('carrera') > -1):
                 model_number = '991.1'
 
-            if year >= 2017 and year <= 2018 and (listing_model_detail.find('911') or listing_model_detail.find('carrera')) > -1:
+            if year >= 2017 and year <= 2018 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('carrera') > -1):
                 model_number = '991.2'
 
-            if year >= 1993 and year <= 1996 and (listing_model_detail.find('911') or listing_model_detail.find('993')) > -1:
+            if year >= 1993 and year <= 1996 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('993') > -1):
                 model_number = '993'
 
-            if year >= 1998 and year <= 2003 and (listing_model_detail.find('911') or listing_model_detail.find('996')) > -1:
+            if year >= 1998 and year <= 2003 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('996') > -1):
                 model_number = '996'
 
-            if year >= 2005 and year <= 2008 and (listing_model_detail.find('911') or listing_model_detail.find('997')) > -1:
+            if year >= 2005 and year <= 2008 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('997') > -1):
                 model_number = '997.1'
 
-            if year >= 2009 and year <= 2012 and (listing_model_detail.find('911') or listing_model_detail.find('997')) > -1:
+            if year >= 2009 and year <= 2012 and (listing_model_detail.find('911') > -1 or listing_model_detail.find('997') > -1):
                 model_number = '997.2'
 
             if year >= 2003 and year <= 2007 and listing_model_detail.find('cayenne') > -1:
@@ -1010,9 +1010,9 @@ class PcarfinderDB():
                 pcf_id = item[29]
 
                 if data['model_number'] == '':
-                    return
+                    continue
 
-                sql = "UPDATE api_pcf SET  model_number = %s WHERE id=%s" % (data['model_number'], pcf_id)
+                sql = "UPDATE api_pcf SET  model_number = '%s' WHERE id=%s" % (data['model_number'], pcf_id)
                 try:
                     self.cursor.execute(sql)
                     self.conn.commit()

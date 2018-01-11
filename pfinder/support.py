@@ -5,7 +5,6 @@ import scrapy
 import json
 from pcarfinder import PcarfinderDB
 
-
 db = PcarfinderDB()
 db.update_rennlist_cond()
 db.remove_scam()
