@@ -9,5 +9,6 @@ from pcarfinder import PcarfinderDB
 db = PcarfinderDB()
 #db.update_rennlist_cond()
 #db.remove_scam()
-db.get_modelnumber('1973', '911')
+#db.get_modelnumber('1973', '911')
 #db.update_model_number()
+db.remove_listings('958')

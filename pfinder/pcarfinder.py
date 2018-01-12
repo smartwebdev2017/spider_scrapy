@@ -1047,3 +1047,28 @@ class PcarfinderDB():
                 except Exception as e:
                     print(e)
                     self.conn.rollback()
+    def remove_listings(self, model_number):
+        sql = "SELECT * FROM api_pcf WHERE model_number = '%s'" % (model_number)
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+
+        for item in results:
+            sql = "DELETE FROM api_car WHERE pcf_id=%s" % (item[0])
+
+            try:
+                self.cursor.execute(sql)
+                self.conn.commit()
+                print('%s is removed successfully from api_car' %(item[0]))
+            except Exception as e:
+                print(e)
+                self.conn.rollback()
+
+            sql = "DELETE FROM api_pcf WHERE id=%s" % (item[0])
+
+            try:
+                self.cursor.execute(sql)
+                self.conn.commit()
+                print('%s is removed successfully from api_pcf' %(item[0]))
+            except Exception as e:
+                print(e)
+                self.conn.rollback()
