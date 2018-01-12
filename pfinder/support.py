@@ -11,4 +11,5 @@ db = PcarfinderDB()
 #db.remove_scam()
 #db.get_modelnumber('1973', '911')
 #db.update_model_number()
-db.remove_listings('958')
+#db.remove_listings('958')
+db.update_cond();

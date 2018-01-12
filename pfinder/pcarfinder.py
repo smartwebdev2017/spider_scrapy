@@ -1072,3 +1072,12 @@ class PcarfinderDB():
             except Exception as e:
                 print(e)
                 self.conn.rollback()
+
+    def update_cond(self):
+        sql = "UPDATE api_car SET  cond = 'Used' WHERE mileage >=100"
+        try:
+            self.cursor.execute(sql)
+            self.conn.commit()
+            print('Updated for used cars')
+        except Exception as e:
+            print(e)
