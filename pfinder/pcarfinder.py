@@ -354,7 +354,7 @@ class PcarfinderDB():
             if year >= 1982 and year <= 1991 and listing_model_detail.find('944') > -1:
                 model_number = '944'
 
-            if year >= 1985 and year <= 1991 and listing_model_detail.find('944') > -1 and listing_model_detail.find('turbo') > -1:
+            if year >= 1985 and year <= 1991 and (listing_model_detail.find('951') > -1 or (listing_model_detail.find('944') > -1 and listing_model_detail.find('turbo') > -1)):
                 model_number = '951'
 
             if year >= 2014 and listing_model_detail.find('macan') > -1:
@@ -692,14 +692,41 @@ class PcarfinderDB():
                         model_detail = '991 2012'
                     elif vin[9] == 'D':
                         model_number = '97.2'
-                        model_detail = '991 2013'
-
+                    elif vin[9] == 'E':
+                        model_number = '97.2'
+                    elif vin[9] == 'F':
+                        model_number = '97.2'
+                    elif vin[9] == 'G':
+                        model_number = '97.2'
                 if model_number == 'PA':
                     model_detail = 'Cayenne 955(2002-2007), 957(2007-2010)'
                     model_number = '55'
                 if model_number == '2A':
                     model_detail = 'Cayenne 958(2010-2017)'
-                    model_number = '58'
+                    if vin[9] == 'A':
+                        model_number = '58.1'
+                        model_detail = '58 2010'
+                    elif vin[9] == 'B':
+                        model_number = '58.1'
+                        model_detail = '58 2011'
+                    elif vin[9] == 'C':
+                        model_number = '58.1'
+                        model_detail = '58 2012'
+                    elif vin[9] == 'D':
+                        model_number = '58.1'
+                        model_detail = '58 2013'
+                    elif vin[9] == 'E':
+                        model_number = '58.1'
+                        model_detail = '58 2014'
+                    elif vin[9] == 'F':
+                        model_number = '58.2'
+                        model_detail = '58 2015'
+                    elif vin[9] == 'G':
+                        model_number = '58.2'
+                        model_detail = '58 2016'
+                    elif vin[9] == 'H':
+                        model_number = '58.2'
+                        model_detail = '58 2017'
 
                 model_number = '9' + model_number
 
