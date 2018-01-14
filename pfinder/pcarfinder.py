@@ -9,6 +9,9 @@ class PcarfinderDB():
     def __init__(self):
         self.conn = mysql.connector.connect(user='root', password='root', db='test1', host='localhost', charset='utf8', use_unicode=True)
         self.cursor = self.conn.cursor(buffered=True)
+
+        self.conn1 = mysql.connector.connect(user='root', password='root', db='test2', host='localhost', charset='utf8', use_unicode=True)
+        self.cursor1 = self.conn.cursor(buffered=True)
     def check_vin_by_code(self, vin_code):
         sql = "select * from api_car where vin_code = '%s' "%(vin_code)
         #sql = "select * from api_car where site_id=2"
@@ -1105,3 +1108,20 @@ class PcarfinderDB():
             print('Updated for used cars')
         except Exception as e:
             print(e)
+
+    def move_listing_date(self):
+        sql = "SELECT id, listing_date FROM api_car"
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+
+        for item in results:
+            listing_date = datetime.datetime.strptime(item[1], '%m-%d-%Y')
+            sql = "UPDATE api_car SET listing_date = %s WHERE id=%s" % (listing_date, item[0])
+
+            try:
+                self.cursor1.execute(sql)
+                self.conn1.commit()
+                print('%s is updated successfully from api_car' %(item[0]))
+            except Exception as e:
+                print(e)
+                self.conn.rollback()
