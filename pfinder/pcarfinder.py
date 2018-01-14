@@ -606,7 +606,31 @@ class PcarfinderDB():
                 if model_number == '5B': model_detail = '95B Macan'
                 if model_number == '64': model_detail = '964(911 1989-1994)'
                 if model_number == '68': model_detail = '968'
-                if model_number == '70': model_detail = '970 (Panamera 2009-2016)'
+                if model_number == '70':
+                    if vin[9] == '9':
+                        model_number = '70.1'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'A':
+                        model_number = '70.1'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'B':
+                        model_number = '70.1'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'C':
+                        model_number = '70.1'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'D':
+                        model_number = '70.1'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'E':
+                        model_number = '70.2'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'F':
+                        model_number = '70.2'
+                        model_detail = 'Panamera 2009-2016'
+                    elif vin[9] == 'G':
+                        model_number = '70.2'
+                        model_detail = 'Panamera 2009-2016'
                 if model_number == '71': model_detail = '971 (Panamera 2016-2023)'
                 if model_number == '80': model_detail = '980 (Carrera GT)'
                 if model_number == '81': model_detail = '981 (Boxster/Cayman 2012-2016)'
@@ -940,7 +964,7 @@ class PcarfinderDB():
         if (listing_model_detail.find('912')>-1) or (model_detail.find('912')>-1): body_type = 'Coupe'
         if (listing_model_detail.find('356')>-1) or (model_detail.find('356')>-1): body_type = 'Coupe'
 
-        if (listing_model_detail.find('718')>-1) or (model_detail.find('718')>-1): body_type = 'Coupe'
+        #if (listing_model_detail.find('718')>-1) or (model_detail.find('718')>-1): body_type = 'Coupe'
 
         color = listing_color
 

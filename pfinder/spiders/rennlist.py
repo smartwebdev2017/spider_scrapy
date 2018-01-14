@@ -208,6 +208,9 @@ class RennlistSpider(BaseProductsSpider):
                 posted_date = date[0]
         except:
             posted_date = ''
+
+        posted_date = datetime.datetime.strptime(posted_date, '%m-%d-%Y')
+
         try:
             title = response.xpath('//div[@class="row sticky-container"]//h1')[0].extract()
             title = re.search('>\s(.*?)</h1>', title).group(1)
@@ -327,10 +330,10 @@ class RennlistSpider(BaseProductsSpider):
                         row = self.db.update_car_by_id(vin_str.upper(), make_str, model_str, '', '', year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), 2, active, vin)
                     if row is not None:
                         info['pcf_id'] = row[29]
-                        d1 = datetime.datetime.strptime(row[10], '%m-%d-%Y')
+                        d1 = row[10]
                         d2 = datetime.datetime.now()
 
-                        listing_age = (d2.date() - d1.date()).days
+                        listing_age = (d2.date() - d1).days
                         info['listing_age'] = listing_age
                         self.db.update_parsing_pcf(info)
             #else:

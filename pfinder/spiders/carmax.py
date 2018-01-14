@@ -120,7 +120,7 @@ class CarMaxSpinder(BaseProductsSpider):
         info = json.loads(re.search('>(.*?)</span>', info_content, re.DOTALL).group(1))
         description = ''
         cur_time = datetime.datetime.now()
-        cur_str = cur_time.strftime('%m-%d-%Y')
+        cur_str = cur_time.date()
 
         product['condition'] = 'Used'
         cond_set_value(product, 'listing_date', cur_str)
@@ -278,10 +278,10 @@ class CarMaxSpinder(BaseProductsSpider):
                     row = self.db.update_car_by_id(info['Vin'].upper(), info['Make'], info['Model'], info['Trim'], model_detail, info['Year'], info['Mileage'], city, state, cur_str, info['Price'], 'Used', 'Dealership', 'https://www.carmax.com/car/' + str(info['StockNumber']) + '/vehicle-history', info['ExteriorColor'], info['InteriorColor'], transmission, '', info['Description'], product.get('url'), info['Size'], description,  isSold, '', '', info['DriveTrain'], datetime.datetime.now(), site[0], active, vin)
                 info['pcf_id'] = row[29]
                 if row is not None:
-                    d1 = datetime.datetime.strptime(row[10], '%m-%d-%Y')
+                    d1 = row[10]
                     d2 = datetime.datetime.now()
 
-                    listing_age = (d2.date() - d1.date()).days
+                    listing_age = (d2.date() - d1).days
                     info['listing_age'] = listing_age
                     self.db.update_parsing_pcf(info)
 

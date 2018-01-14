@@ -156,45 +156,46 @@ class CraigslistSpider(BaseProductsSpider):
             seller_type = 'Dealership'
         elif response.url.find('/cto/') > -1:
             seller_type = 'Private Party'
+        try:
+            for basic_prop in basic_props:
+                try:
+                    key = self._clean_text(basic_prop.xpath('text()')[0].extract())
+                    value = self._clean_text(basic_prop.xpath('b/text()')[0].extract())
+                except Exception as err:
+                    print(err)
+                    continue
 
-        for basic_prop in basic_props:
-            try:
-                key = self._clean_text(basic_prop.xpath('text()')[0].extract())
-                value = self._clean_text(basic_prop.xpath('b/text()')[0].extract())
-            except Exception as err:
-                print(err)
-                continue
-
-            if key == 'VIN:':
-                vin_code = value
-            elif key =='condition:':
-                if value == 'New':
-                    cond = 'New'
-                else:
-                    cond = 'Used'
-            elif key =='cylinders:':
-                cylinders = value
-            elif key =='fuel:':
-                fuel = value
-            elif key =='odometer:':
-                mileage = value
-            elif key =='paint color:':
-                exterior_color = value
-            elif key =='title status:':
-                title_status = value
-            elif key =='transmission:':
-                if value[:4].lower() == 'auto':
-                    transmission = 'Auto'
-                elif value[:4].lower() == 'manu':
-                    transmission = 'Manual'
-            elif key =='type:':
-                type = value
-            elif key == 'drive:':
-                if value == 'fwd' or value == 'rwd':
-                    drive = '2WD'
-                elif value.lower() == '4wd':
-                    drive = '4WD'
-
+                if key == 'VIN:':
+                    vin_code = value
+                elif key =='condition:':
+                    if value == 'New':
+                        cond = 'New'
+                    else:
+                        cond = 'Used'
+                elif key =='cylinders:':
+                    cylinders = value
+                elif key =='fuel:':
+                    fuel = value
+                elif key =='odometer:':
+                    mileage = value
+                elif key =='paint color:':
+                    exterior_color = value
+                elif key =='title status:':
+                    title_status = value
+                elif key =='transmission:':
+                    if value[:4].lower() == 'auto':
+                        transmission = 'Auto'
+                    elif value[:4].lower() == 'manu':
+                        transmission = 'Manual'
+                elif key =='type:':
+                    type = value
+                elif key == 'drive:':
+                    if value == 'fwd' or value == 'rwd':
+                        drive = '2WD'
+                    elif value.lower() == '4wd':
+                        drive = '4WD'
+        except Exception as e:
+            print(e)
         if vin_code == '':
             vin = self.db.check_vin_by_url(product['url'])
         else:
@@ -356,10 +357,10 @@ class CraigslistSpider(BaseProductsSpider):
             prod_item = SiteProductItem()
             if listing_date not in (None, ''):
                 dt = datetime.datetime.strptime(listing_date, '%Y-%m-%d %H:%M')
-                listing_date = dt.strftime('%m-%d-%Y')
+                #listing_date = dt.strftime('%m-%d-%Y')
 
-            prod_item['listing_date'] = listing_date
-            print(listing_date)
+            prod_item['listing_date'] = dt
+            #print(listing_date)
             prod_item['price'] = price
             prod_item['city'] = city
             prod_item['state'] = self.state
