@@ -12,4 +12,5 @@ db = PcarfinderDB()
 #db.get_modelnumber('1973', '911')
 #db.update_model_number()
 #db.remove_listings('958')
-db.update_cond();
+#db.update_cond();
+db.move_listing_date()
