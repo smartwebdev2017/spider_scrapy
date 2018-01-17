@@ -11,7 +11,7 @@ class PcarfinderDB():
         self.cursor = self.conn.cursor(buffered=True)
 
         self.conn1 = mysql.connector.connect(user='root', password='root', db='test2', host='localhost', charset='utf8', use_unicode=True)
-        self.cursor1 = self.conn.cursor(buffered=True)
+        self.cursor1 = self.conn1.cursor(buffered=True)
     def check_vin_by_code(self, vin_code):
         sql = "select * from api_car where vin_code = '%s' "%(vin_code)
         #sql = "select * from api_car where site_id=2"
@@ -912,8 +912,7 @@ class PcarfinderDB():
             pts = 1
 
         if (bs_option_description.find('ceramic') > -1) or (bs_option_description.find('pccb') > -1) or \
-           (listing_title.find('pccb') > -1) or (listing_title.find('ceramic') > -1) or \
-           (listing_description.find('pccb') > -1) or (listing_description.find('ceramic') > -1):
+           (listing_title.find('pccb') > -1) or (listing_description.find('pccb') > -1) :
             pccb = 1
         if vin not in ('', None):
             if (year in (1948, 1997)) or (listing_year in (1948, 1997)) or (( (year == 1998)or (listing_year == 1998)) and (vin[11] == '3')):
@@ -925,10 +924,18 @@ class PcarfinderDB():
 
         if (listing_transmission == 'auto') and ((listing_year in (1967, 1981)) or (year in (1967, 1981))):
             auto_trans = 'Sportomatic'
-        if ((listing_transmission == 'auto'  ) or (bs_option_description.find('tiptronic') > -1)) and ((listing_year in (1989, 2008)) or (year in (1989, 2008))):
+
+        if bs_option_description.find('tiptronic') > -1:
             auto_trans = 'Tiptronic'
-        if ((listing_transmission == 'auto') or (bs_option_description.find('doppelkupplung') > -1)) and ((listing_year >= 2009) or ( year >= 2009)):
+        else:
+            if listing_transmission == 'auto' and ((listing_year in (1989, 2008)) or (year in (1989, 2008))):
+                auto_trans = 'Tiptronic'
+
+        if bs_option_description.find('doppelkupplung') > -1:
             auto_trans = 'PDK'
+        else:
+            if listing_transmission == 'auto' and ((listing_year >= 2009) or ( year >= 2009)):
+                auto_trans = 'PDK'
 
         if (listing_model_detail.find('cayenne')>-1) or (model_detail.find('cayenne')>-1):  body_type = 'SUV'
         if (listing_model_detail.find('boxster')>-1) or (model_detail.find('boxster')>-1): body_type = 'Convertible'
@@ -1111,12 +1118,12 @@ class PcarfinderDB():
 
     def move_listing_date(self):
         sql = "SELECT id, listing_date FROM api_car"
-        self.cursor.execute(sql)
-        results = self.cursor.fetchall()
+        self.cursor1.execute(sql)
+        results = self.cursor1.fetchall()
 
         for item in results:
             listing_date = datetime.datetime.strptime(item[1], '%m-%d-%Y')
-            sql = "UPDATE api_car SET listing_date = %s WHERE id=%s" % (listing_date, item[0])
+            sql = "UPDATE api_car SET listing_date = '%s' WHERE id=%s" % (listing_date, item[0])
 
             try:
                 self.cursor1.execute(sql)
@@ -1125,3 +1132,32 @@ class PcarfinderDB():
             except Exception as e:
                 print(e)
                 self.conn.rollback()
+
+    def update_listings_pcf(self, title, description):
+        sql = "SELECT id, listing_description, pcf_id, listing_title FROM api_car WHERE listing_description=%s and listing_title=%s"
+        self.cursor.execute(sql, (description,title))
+        results = self.cursor.fetchall()
+
+        if len(results) > 0:
+            pcf_id = results[0][2]
+
+        if len(results) > 1:
+            for item in results:
+                sql = "UPDATE api_car SET pcf_id = %s WHERE id=%s" % (pcf_id, item[0])
+                try:
+                    self.cursor.execute(sql)
+                    self.conn.commit()
+                    print('%s pcf id is updated successfully from api_car' %(item[0]))
+                except Exception as e:
+                    print(e)
+                    self.conn.rollback()
+
+    def update_listings_by_description(self):
+        sql = "SELECT listing_title, listing_description, vin_code FROM api_car"
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+
+        for item in results:
+            if item[2] == '':
+                self.update_listings_pcf(item[0], item[1])
+
