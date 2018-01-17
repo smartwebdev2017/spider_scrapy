@@ -36,7 +36,7 @@ class CraigslistSpider(BaseProductsSpider):
     URL_STATES = {
         'https://{search_term}.craigslist.org/search/cta?auto_make_model=Porsche', 'CA'
     }
-    NEXT_PAGE_URL = 'https://sfbay.craigslist.org/search/cta?s={start_index}&auto_make_model=Porsche'
+    NEXT_PAGE_URL = 'https://{search_term}.craigslist.org/search/cta?s={start_index}&auto_make_model=Porsche'
     HEADERS={
             "Accept": "application/json",
             "Accept-Encoding": "gzip, deflate, sdch, br",
@@ -223,7 +223,10 @@ class CraigslistSpider(BaseProductsSpider):
                     info['listing_color'] = exterior_color
                     info['listing_description'] = description
                     result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model)
-                    info['model_number'] = result.get('model_number')
+                    try:
+                        info['model_number'] = result.get('model_number')
+                    except Exception as e:
+                        info['model_number'] = ''
 
                     bsf_data = self.db.check_bsf(vin_code)
 
@@ -232,19 +235,21 @@ class CraigslistSpider(BaseProductsSpider):
 
                         if retry_result is None:
                             bsf_data = self.db.getBSinfo(vin_code)
-                            bsf_id = self.db.insert_bsf(vin_code, bsf_data['msrp'], bsf_data['warranty_start'], bsf_data['model_year'], bsf_data['model_detail'], bsf_data['color'], datetime.datetime.strptime(bsf_data['production_month'], '%m/%Y'), bsf_data['interior'])
-                            bs_option_description = ''
 
-                            for option in bsf_data['options']:
-                                self.db.insert_bsf_options(bsf_id, option['code'], option['value'])
-                                bs_option_description = bs_option_description + option['value'] + ','
+                            if bsf_data is not None:
+                                bsf_id = self.db.insert_bsf(vin_code, bsf_data['msrp'], bsf_data['warranty_start'], bsf_data['model_year'], bsf_data['model_detail'], bsf_data['color'], datetime.datetime.strptime(bsf_data['production_month'], '%m/%Y'), bsf_data['interior'])
+                                bs_option_description = ''
 
-                            info['model_detail'] = bsf_data['model_detail']
-                            info['model_year'] = bsf_data['model_year']
-                            info['bs_option_description'] = bs_option_description
-                            info['gap_to_msrp'] = int(product['price'] / float(bsf_data['msrp']) * 100)
-                            pcf_id = self.db.insert_parsing_pcf(info)
-                            self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
+                                for option in bsf_data['options']:
+                                    self.db.insert_bsf_options(bsf_id, option['code'], option['value'])
+                                    bs_option_description = bs_option_description + option['value'] + ','
+
+                                info['model_detail'] = bsf_data['model_detail']
+                                info['model_year'] = bsf_data['model_year']
+                                info['bs_option_description'] = bs_option_description
+                                info['gap_to_msrp'] = int(product['price'] / float(bsf_data['msrp']) * 100)
+                                pcf_id = self.db.insert_parsing_pcf(info)
+                                self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
                     else:
                         bs_option_description = ''
                         options = self.db.get_bsf_options(bsf_data[0])
@@ -288,8 +293,11 @@ class CraigslistSpider(BaseProductsSpider):
                     info['listing_description'] = description
                     info['gap_to_msrp'] = 0
 
-                    pcf_id = self.db.insert_parsing_pcf(info)
-
+                    pcf_id = self.db.get_same_description_pcf(listing_title, description)
+                    if pcf_id is None:
+                        pcf_id = self.db.insert_parsing_pcf(info)
+                    else:
+                        print('same %s pcf_id is exist!' % (pcf_id))
                     self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
             else:
                 if vin_code == '':

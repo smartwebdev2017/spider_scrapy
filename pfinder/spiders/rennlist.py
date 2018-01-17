@@ -319,7 +319,11 @@ class RennlistSpider(BaseProductsSpider):
                     info['listing_description'] = description
                     info['gap_to_msrp'] = 0
 
-                    pcf_id = self.db.insert_parsing_pcf(info)
+                    pcf_id = self.db.get_same_description_pcf(title, description)
+                    if pcf_id is None:
+                        pcf_id = self.db.insert_parsing_pcf(info)
+                    else:
+                        print('same %s pcf_id is exist!' % (pcf_id))
 
                     self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', cont_str, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
             else:

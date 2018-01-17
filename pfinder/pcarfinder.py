@@ -274,6 +274,7 @@ class PcarfinderDB():
         except Exception as e:
             title = ''
             self.insertRetryCar(vin)
+            return None
         try:
             model_year = re.search('(\d{4}\s)(.*?\s)(.*?$)', title).group(1)
             model = re.search('(\d{4}\s)(.*?\s)(.*?$)', title).group(2)
@@ -289,9 +290,12 @@ class PcarfinderDB():
             print('Parsing Error in regular expressions')
 
         vehicle = bs.find('div', {'class':'vehicle'})
-        vehicle_labels = vehicle.findAll('div', {'class':'label'})
-        vehicle_values = vehicle.findAll('div', {'class':'value'})
-
+        try:
+            vehicle_labels = vehicle.findAll('div', {'class':'label'})
+            vehicle_values = vehicle.findAll('div', {'class':'value'})
+        except Exception as e:
+            print(e)
+            return None
         print('Vehicle')
         data['production_month'] = ''
         data['msrp'] = 0
@@ -1133,6 +1137,17 @@ class PcarfinderDB():
                 print(e)
                 self.conn.rollback()
 
+    def get_same_description_pcf(self, title, description):
+        sql = "SELECT id, listing_description, pcf_id, listing_title FROM api_car WHERE listing_description=%s and listing_title=%s"
+        self.cursor.execute(sql, (description,title))
+        results = self.cursor.fetchall()
+        pcf_id = None
+
+        if len(results) > 0:
+            pcf_id = results[0][2]
+
+        return pcf_id
+
     def update_listings_pcf(self, title, description):
         sql = "SELECT id, listing_description, pcf_id, listing_title FROM api_car WHERE listing_description=%s and listing_title=%s"
         self.cursor.execute(sql, (description,title))
@@ -1147,7 +1162,8 @@ class PcarfinderDB():
                 try:
                     self.cursor.execute(sql)
                     self.conn.commit()
-                    print('%s pcf id is updated successfully from api_car' %(item[0]))
+
+                    print('%s pcf id is updated successfully from api_car' %(pcf_id))
                 except Exception as e:
                     print(e)
                     self.conn.rollback()

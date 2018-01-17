@@ -267,7 +267,11 @@ class CarMaxSpinder(BaseProductsSpider):
                     except Exception as e:
                         info['model_number'] = ''
 
-                    #info['model_number'] = result['model_number']
+                    pcf_id = self.db.get_same_description_pcf(info['Description'], description)
+                    if pcf_id is None:
+                        pcf_id = self.db.insert_parsing_pcf(info)
+                    else:
+                        print('same %s pcf_id is exist!' % (pcf_id))
                     pcf_id = self.db.insert_parsing_pcf(info)
                     self.db.insert_car(site[0], info['Vin'].upper(), info['Make'], info['Model'], info['Trim'], model_detail, info['Year'], info['Mileage'], city, state, cur_time, info['Price'], 'Used', 'Dealership', 'https://www.carmax.com/car/' + str(info['StockNumber']) + '/vehicle-history', info['ExteriorColor'], info['InteriorColor'], transmission, '', info['Description'], product.get('url'), info['Size'], description,  isSold, '', '', info['DriveTrain'], datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
             else:
