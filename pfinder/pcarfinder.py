@@ -991,30 +991,42 @@ class PcarfinderDB():
         same_counts = 0
         listing_age = 0
 
-        bGen = False
-        while bGen == False:
-            newKey = ''.join(random.choice('01234567890ABCDEF') for i in range(6))
-            sql = "SELECT * FROM api_pcf WHERE vid ='%s'" % (newKey)
-            self.cursor.execute(sql)
-            result = self.cursor.fetchone()
-            if result is None:
-                bGen = True
-                sql = "insert into api_pcf (longhood, widebody, pts, pccb, color, body_type, air_cooled, gap_to_msrp, listing_age, lwb_seats, auto_trans" \
-                      ", option_code, option_description, placeholder, produced_usa, produced_globally, same_counts, vid, model_number) values (" \
-                      "%s, %s, %s, %s, '%s', '%s', %s, %s, %s, %s, '%s', '%s', '%s', %s, %s, %s, %s, '%s', '%s') " % (longhood, widebody, pts, pccb, color, body_type, air_cooled,
-                                                                                                          gap_to_msrp, listing_age, lwb, auto_trans, option_code,
-                                                                                                          option_description, placeholder, producted_usa, producted_globally, same_counts, newKey, model_number)
+        if vin_data.get('pcf_id') is not None:
+            sql = "update api_pcf SET longhood=%s, widebody=%s, pts=%s, pccb=%s, color=%s, body_type=%s, air_cooled=%s, gap_to_msrp=%s, listing_age=%s, lwb_seats=%s, auto_trans=%s," \
+                  " option_code=%s, option_description=%s, placeholder=%s, produced_usa=%s, produced_globally=%s, same_counts=%s, model_number=%s where id=%s"
+            try:
+                self.cursor.execute(sql,(longhood, widebody, pts, pccb, color, body_type, air_cooled,gap_to_msrp, vin_data['listing_age'], lwb, auto_trans, option_code,
+                                                         option_description, placeholder, producted_usa, producted_globally, same_counts, model_number, vin_data['pcf_id']))
+                self.conn.commit()
+                print('%s pcf is updated successfully' %(vin_data['pcf_id']))
+            except Exception as e:
+                print(e)
+                self.conn.rollback()
+        else:
+            bGen = False
+            while bGen == False:
+                newKey = ''.join(random.choice('01234567890ABCDEF') for i in range(6))
+                sql = "SELECT * FROM api_pcf WHERE vid ='%s'" % (newKey)
+                self.cursor.execute(sql)
+                result = self.cursor.fetchone()
+                if result is None:
+                    bGen = True
+                    sql = "insert into api_pcf (longhood, widebody, pts, pccb, color, body_type, air_cooled, gap_to_msrp, listing_age, lwb_seats, auto_trans" \
+                          ", option_code, option_description, placeholder, produced_usa, produced_globally, same_counts, vid, model_number) values (" \
+                          "%s, %s, %s, %s, '%s', '%s', %s, %s, %s, %s, '%s', '%s', '%s', %s, %s, %s, %s, '%s', '%s') " % (longhood, widebody, pts, pccb, color, body_type, air_cooled,
+                                                                                                              gap_to_msrp, listing_age, lwb, auto_trans, option_code,
+                                                                                                              option_description, placeholder, producted_usa, producted_globally, same_counts, newKey, model_number)
 
-                try:
-                    self.cursor.execute(sql)
-                    self.conn.commit()
-                    print("'%s' is added to pcf successfully" %(newKey))
-                    id = self.cursor.lastrowid
-                    return id
-                except Exception as e:
-                    print(e)
-                    self.conn.rollback()
-                    return None
+                    try:
+                        self.cursor.execute(sql)
+                        self.conn.commit()
+                        print("'%s' is added to pcf successfully" %(newKey))
+                        id = self.cursor.lastrowid
+                        return id
+                    except Exception as e:
+                        print(e)
+                        self.conn.rollback()
+                        return None
 
     def update_rennlist_cond(self):
         sql = "SELECT * FROM api_car WHERE site_id = '%s' " %(2)
@@ -1177,3 +1189,51 @@ class PcarfinderDB():
             if item[2] == '':
                 self.update_listings_pcf(item[0], item[1])
 
+    def update_all_pccb(self):
+        sql = "select a.id, a.listing_title, a.listing_description, b.id, a.vin_id from api_car  as a left join api_pcf as b on a.pcf_id = b.id;"
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+
+        for item in results:
+            if item[1].lower().find('pccb') > -1 or item[2].lower().find('pccb') > -1:
+                self.update_pccb(item[3])
+            else:
+                if item[4] == None:
+                    continue
+
+                sql = "SELECT value FROM api_bsf_options WHERE bsf_id = %s" %(item[4])
+                self.cursor.execute(sql)
+                opt_results = self.cursor.fetchall()
+
+                for opt_item in opt_results:
+                    if opt_item[0].lower().find('ceramic') > -1 or opt_item[0].lower().find('pccb') > -1:
+                        self.update_pccb(item[3])
+                        break
+
+
+    def update_pccb(self, id):
+        sql = "UPDATE api_pcf SET pccb=1 WHERE id=%s" % (id)
+        try:
+            self.cursor.execute(sql)
+            self.conn.commit()
+
+            print('%s pcf pccb is updated successfully from api_pcf' % (id))
+        except Exception as e:
+            print(e)
+            self.conn.rollback()
+
+    def update_coupe(self):
+        sql = "SELECT listing_title, listing_description, vin_id, id FROM api_car"
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+
+        for item in results:
+            if item[0].find('718') > -1 or item[1].find('718') > -1:
+                print(item[3])
+            else:
+                if item[2] is not None:
+                    sql = "SELECT model_detail, id FROM api_bsf WHERE id=%s" % (item[2])
+                    self.cursor.execute(sql)
+                    result = self.cursor.fetchone()
+                    if result[0].find('718') > -1:
+                        print('bsf couper %s' %(result[1]))

@@ -287,8 +287,38 @@ class CarMaxSpinder(BaseProductsSpider):
 
                     listing_age = (d2.date() - d1).days
                     info['listing_age'] = listing_age
-                    self.db.update_parsing_pcf(info)
+                    #self.db.update_parsing_pcf(info)
 
+                    result = self.db.parsing_vin(info['Vin'].upper(), info['Year'], model_detail)
+                    bsf_data = self.db.check_bsf(info['Vin'])
+
+                    info['listing_model_detail'] = model_detail
+                    info['listing_transmission'] = transmission
+                    info['listing_color'] = info['ExteriorColor']
+                    info['listing_description'] = description
+
+                    try:
+                        info['model_number'] = result['model_number']
+                    except Exception as e:
+                        info['model_number'] = ''
+
+                    if bsf_data is not None:
+                        bs_option_description = ''
+                        options = self.db.get_bsf_options(bsf_data[0])
+                        for option in options:
+                            bs_option_description = bs_option_description + option[2] + ','
+
+                        info['model_detail'] = bsf_data[5]
+                        info['model_year'] = bsf_data[4]
+                        info['bs_option_description'] = bs_option_description
+                        info['gap_to_msrp'] = int(info['Price'] / float(bsf_data[2]) * 100)
+                    else:
+                        info['model_detail'] = ''
+                        info['model_year'] = ''
+                        info['bs_option_description'] = ''
+                        info['gap_to_msrp'] = 0
+
+                    self.db.insert_parsing_pcf(info)
             # with open("out_car_max.csv", "a") as result:
             #     wr = csv.writer(result)
             #     #wr.writerow(['VIN', 'Listing_Make', 'Listing_Model', 'Listing_Trim', 'Listing_Model_Detail', 'Listing_Year', 'Mileage', 'City', 'State', 'Listing_Date', 'Price', 'Condition', 'Seller_Type', 'VHR_Link', 'Listing_Color', 'Listing_Interio_Color', 'Listing_Transmission', 'Listing_Transmission_Detail', 'Listing_Title', 'Listing_URL', 'Listing_Engine_Size', 'Listing_Description', 'Sold_Status', 'Sold_Date', 'Listing_Body_Type', 'Drivetrain'])

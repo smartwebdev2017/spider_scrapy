@@ -260,6 +260,7 @@ class CraigslistSpider(BaseProductsSpider):
                         info['model_year'] = bsf_data[4]
                         info['bs_option_description'] = bs_option_description
                         info['gap_to_msrp'] = int(product['price'] / float(bsf_data[2]) * 100)
+                        info['pcf_id'] = None
                         pcf_id = self.db.insert_parsing_pcf(info)
                         self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
                 else:
@@ -306,14 +307,57 @@ class CraigslistSpider(BaseProductsSpider):
                     row = self.db.update_car_by_id(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), 3, active, vin)
                 try:
                     info['pcf_id'] = row[29]
-                    d1 = datetime.datetime.strptime(row[10], '%m-%d-%Y')
+                    d1 = row[10]
                     d2 = datetime.datetime.now()
 
-                    listing_age = (d2.date() - d1.date()).days
+                    listing_age = (d2.date() - d1).days
                     info['listing_age'] = listing_age
-                    self.db.update_parsing_pcf(info)
+                    result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model)
+                    bsf_data = self.db.check_bsf(vin_code)
+
+                    info['Vin'] = vin_code
+                    try:
+                        info['Year'] = listing_year
+                    except Exception as err:
+                        print(err)
+                        listing_year = 0
+                    info['Make'] = listing_make
+                    info['Model'] = listing_model
+                    info['Mileage'] = mileage
+                    info['Price'] = product['price']
+                    info['Transmission'] = transmission
+                    info['DriveTrain'] = drive
+                    info['Description'] = description
+
+                    try:
+                        info['model_number'] = result['model_number']
+                    except Exception as e:
+                        info['model_number'] = ''
+                    info['listing_trim'] = listing_trim
+                    info['listing_model_detail'] = listing_model_detail
+                    info['listing_transmission'] = transmission
+                    info['listing_color'] = exterior_color
+                    info['listing_description'] = description
+
+                    bs_option_description = ''
+                    if bsf_data is not None:
+                        options = self.db.get_bsf_options(bsf_data[0])
+                        for option in options:
+                            bs_option_description = bs_option_description + option[2] + ','
+
+                        info['model_detail'] = bsf_data[5]
+                        info['model_year'] = bsf_data[4]
+                        info['bs_option_description'] = bs_option_description
+                        info['gap_to_msrp'] = int(product['price'] / float(bsf_data[2]) * 100)
+                    else:
+                        info['model_detail'] = ''
+                        info['model_year'] = ''
+                        info['bs_option_description'] = ''
+                        info['gap_to_msrp'] = 0
+
+                    self.db.insert_parsing_pcf(info)
                 except Exception as err:
-                    pass
+                    print(err)
         # with open("out_car_craigslist.csv", "a") as result:
         #     wr = csv.writer(result)
         #     #wr.writerow(['VIN', 'Listing_Make', 'Listing_Model', 'Listing_Trim', 'Listing_Model_Detail', 'Listing_Year', 'Mileage', 'City', 'State', 'Listing_Date', 'Price', 'Condition', 'Seller_Type', 'VHR_Link', 'Listing_Color', 'Listing_Interio_Color', 'Listing_Transmission', 'Listing_Transmission_Detail', 'Listing_Title', 'Listing_URL', 'Listing_Engine_Size', 'Listing_Description', 'Sold_Status', 'Sold_Date', 'Listing_Body_Type', 'Drivetrain'])

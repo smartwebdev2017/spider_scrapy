@@ -339,7 +339,46 @@ class RennlistSpider(BaseProductsSpider):
 
                         listing_age = (d2.date() - d1).days
                         info['listing_age'] = listing_age
-                        self.db.update_parsing_pcf(info)
+                        #self.db.update_parsing_pcf(info)
+                        result = self.db.parsing_vin(vin_str.upper(), year_str, model_str)
+                        bsf_data = self.db.check_bsf(vin_str)
+
+                        info['Vin'] = vin_str
+                        info['Year'] = year_str
+                        info['Make'] = make_str
+                        info['Model'] = model_str
+                        info['Mileage'] = mileage_str
+                        info['Price'] = price_str
+                        info['Transmission'] = transmission_str
+                        info['DriveTrain'] = wheel_str
+                        info['Description'] = description
+
+                        try:
+                            info['model_number'] = result['model_number']
+                        except Exception as e:
+                            info['model_number'] = ''
+                        info['listing_model_detail'] = model_str
+                        info['listing_transmission'] = transmission_str
+                        info['listing_color'] = color_str
+                        info['listing_description'] = description
+
+                        if bsf_data is not None:
+                            bs_option_description = ''
+                            options = self.db.get_bsf_options(bsf_data[0])
+                            for option in options:
+                                bs_option_description = bs_option_description + option[2] + ','
+
+                            info['model_detail'] = bsf_data[5]
+                            info['model_year'] = bsf_data[4]
+                            info['bs_option_description'] = bs_option_description
+                            info['gap_to_msrp'] = int(price_str / float(bsf_data[2]) * 100)
+                        else:
+                            info['model_detail'] = ''
+                            info['model_year'] = ''
+                            info['bs_option_description'] = ''
+                            info['gap_to_msrp'] = 0
+
+                        self.db.insert_parsing_pcf(info)
             #else:
             #    self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', cont_str, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), vin[33], vin[29], active)
 
