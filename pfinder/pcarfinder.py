@@ -919,7 +919,7 @@ class PcarfinderDB():
            (listing_title.find('pccb') > -1) or (listing_description.find('pccb') > -1) :
             pccb = 1
         if vin not in ('', None):
-            if (year in (1948, 1997)) or (listing_year in (1948, 1997)) or (( (year == 1998)or (listing_year == 1998)) and (vin[11] == '3')):
+            if ((year in (1948, 1997)) or (listing_year in (1948, 1997)) or (( (year == 1998)or (listing_year == 1998)) and (vin[11] == '3'))) and (listing_model_detail.find('boxster') == -1):
                 air_cooled = 1
 
         if bs_option_description.find('bucket') > -1:
