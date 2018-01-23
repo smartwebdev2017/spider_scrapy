@@ -1237,3 +1237,15 @@ class PcarfinderDB():
                     result = self.cursor.fetchone()
                     if result[0].find('718') > -1:
                         print('bsf couper %s' %(result[1]))
+
+    def update_rennlist_older(self):
+        sql = 'update api_car set sold_state=1, active=0 where site_id=2 and listing_date <= (now() - interval 6 month)'
+
+        try:
+            self.cursor.execute(sql)
+            self.conn.commit()
+
+            print('older than 6months listings are updated to inactive')
+        except Exception as e:
+            print(e)
+            self.conn.rollback()
