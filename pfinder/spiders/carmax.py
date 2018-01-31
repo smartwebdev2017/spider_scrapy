@@ -67,7 +67,7 @@ class CarMaxSpider(BaseProductsSpider):
                                              *args,
                                              **kwargs)
 
-        settings.overrides['DOWNLOAD_DELAY'] = 1
+        #settings.overrides['DOWNLOAD_DELAY'] = 1
 
     def start_requests(self):
         # with open("out_car_max.csv", "a") as result:

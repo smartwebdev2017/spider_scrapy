@@ -74,7 +74,7 @@ class CraigslistSpider(BaseProductsSpider):
                                              *args,
                                              **kwargs)
 
-        settings.overrides['DOWNLOAD_DELAY'] = 1
+        #settings.overrides['DOWNLOAD_DELAY'] = 1
 
 
 
