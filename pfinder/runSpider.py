@@ -7,10 +7,10 @@ from pcarfinder import PcarfinderDB
 
 
 db = PcarfinderDB()
-os.system("scrapy crawl carmax -a searchterms_str=Porsche")
+#os.system("scrapy crawl carmax -a searchterms_str=Porsche")
 # print('*****  Carmax spider was finished! *****')
 # print('***** Updating carmax sold status *****')
-db.update_carmax_sold_status()
+#db.update_carmax_sold_status()
 # print('***** Finished carmax sold status *****')
 #
 # os.system("scrapy crawl rennlist -a searchterms_str=Porsche")
@@ -32,8 +32,15 @@ db.update_carmax_sold_status()
 #     crawl_str = 'scrapy crawl craigslist -a searchterms_str=%s -a state=%s' % (shortcode, state)
 #     print(crawl_str)
     #os.system(crawl_str)
-print('*****  Craigslist spider was finished! *****')
-print('***** Updating craigslist sold status *****')
-db.update_craigslist_sold_status()
-print('***** Finished craigslist sold status *****')
-db.update_rennlist_older()
+#print('*****  Craigslist spider was finished! *****')
+#print('***** Updating craigslist sold status *****')
+#db.update_craigslist_sold_status()
+#print('***** Finished craigslist sold status *****')
+#db.update_rennlist_older()
+
+with open('porschedealer.json') as porsche_file:
+    domains = json.load(porsche_file)
+
+for domain in domains:
+    crawl_str = 'scrapy crawl porsche -a searchterms_str=%s' % (domain['name'])
+    os.system(crawl_str)

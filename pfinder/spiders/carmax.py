@@ -29,7 +29,7 @@ class CustomClientContextFactory(ScrapyClientContextFactory):
             ClientTLSOptions(hostname, ctx)
         return ctx
 
-class CarMaxSpinder(BaseProductsSpider):
+class CarMaxSpider(BaseProductsSpider):
     handle_httpstatus_list = [404]
     name = "carmax"
     allowed_domains = ['www.carmax.com']
@@ -62,7 +62,7 @@ class CarMaxSpinder(BaseProductsSpider):
         self.total_matches = None
 
         url_formatter = FormatterWithDefaults(page_num=1)
-        super(CarMaxSpinder, self).__init__(url_formatter=url_formatter,
+        super(CarMaxSpider, self).__init__(url_formatter=url_formatter,
                                              site_name=self.allowed_domains[0],
                                              *args,
                                              **kwargs)

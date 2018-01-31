@@ -98,7 +98,7 @@ class CraigslistSpider(BaseProductsSpider):
 
     def parse_product(self, response):
         product = response.meta['product']
-        props_data = response.xpath('//div[@class="mapAndAttrs"]//p[@class="attrgroup"]')
+        props_data = response.xpath('//d iv[@class="mapAndAttrs"]//p[@class="attrgroup"]')
         listing_title = self._clean_text(props_data[0].xpath('//span[@id="titletextonly"]/text()')[0].extract())
         model_content = props_data[0].xpath('span/b/text()')[0].extract()
         basic_props = props_data[1].xpath('span')
@@ -358,14 +358,6 @@ class CraigslistSpider(BaseProductsSpider):
                     self.db.insert_parsing_pcf(info)
                 except Exception as err:
                     print(err)
-        # with open("out_car_craigslist.csv", "a") as result:
-        #     wr = csv.writer(result)
-        #     #wr.writerow(['VIN', 'Listing_Make', 'Listing_Model', 'Listing_Trim', 'Listing_Model_Detail', 'Listing_Year', 'Mileage', 'City', 'State', 'Listing_Date', 'Price', 'Condition', 'Seller_Type', 'VHR_Link', 'Listing_Color', 'Listing_Interio_Color', 'Listing_Transmission', 'Listing_Transmission_Detail', 'Listing_Title', 'Listing_URL', 'Listing_Engine_Size', 'Listing_Description', 'Sold_Status', 'Sold_Date', 'Listing_Body_Type', 'Drivetrain'])
-        #     try:
-        #         wr.writerow([vin_code.upper() , listing_make, listing_model, '', listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, response.url, '', description,  '0', '', '', drive])
-        #     except Exception as err:
-        #         print(err)
-
 
     def _scrape_product_links(self, response):
         products = response.xpath('//div[@id="sortable-results"]//ul/li')
