@@ -178,6 +178,19 @@ class PcarfinderDB():
             except Exception as e:
                 print(e)
 
+    def update_porsche_sold_status(self):
+        sql = "select * from api_car  where site_id = 4 and sold_state = 0 and DATE(updated) <= (NOW() - INTERVAL 1 DAY) "
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        for result in results:
+            sql = "UPDATE api_car SET active = 0, sold_state = %s, sold_date = '%s' WHERE id = %s " %(1, datetime.datetime.now(), result[0])
+            try:
+                self.cursor.execute(sql)
+                self.conn.commit()
+                print("%s is updated successfully" % result[1])
+            except Exception as e:
+                print(e)
+
     def insert_temp_data(self, vin_id, code, value):
         sql = "INSERT INTO temp (vin_id, code, value) values (%s, '%s', '%s') " % (vin_id, code, value)
 

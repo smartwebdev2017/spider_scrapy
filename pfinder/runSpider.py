@@ -44,3 +44,6 @@ with open('porschedealer.json') as porsche_file:
 for domain in domains:
     crawl_str = 'scrapy crawl porsche -a searchterms_str=%s' % (domain['name'])
     os.system(crawl_str)
+print('***** Updating porsche sold status *****')
+db.update_porsche_sold_status()
+print('***** Finished porsche sold status *****')
