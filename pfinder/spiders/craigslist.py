@@ -98,7 +98,7 @@ class CraigslistSpider(BaseProductsSpider):
 
     def parse_product(self, response):
         product = response.meta['product']
-        props_data = response.xpath('//d iv[@class="mapAndAttrs"]//p[@class="attrgroup"]')
+        props_data = response.xpath('//div[@class="mapAndAttrs"]//p[@class="attrgroup"]')
         listing_title = self._clean_text(props_data[0].xpath('//span[@id="titletextonly"]/text()')[0].extract())
         model_content = props_data[0].xpath('span/b/text()')[0].extract()
         basic_props = props_data[1].xpath('span')
