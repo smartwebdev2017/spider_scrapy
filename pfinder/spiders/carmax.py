@@ -30,6 +30,8 @@ class CustomClientContextFactory(ScrapyClientContextFactory):
         return ctx
 
 class CarMaxSpider(BaseProductsSpider):
+    crawlera_enabled = True
+    crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [404]
     name = "carmax"
     allowed_domains = ['www.carmax.com']

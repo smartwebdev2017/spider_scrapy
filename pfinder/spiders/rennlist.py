@@ -12,6 +12,8 @@ import re
 import datetime
 
 class RennlistSpider(BaseProductsSpider):
+    crawlera_enabled = True
+    crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [524]
 
     name = "rennlist"

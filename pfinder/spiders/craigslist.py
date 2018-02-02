@@ -23,6 +23,8 @@ import datetime
 
 
 class CraigslistSpider(BaseProductsSpider):
+    crawlera_enabled = True
+    crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [404]
     name = "craigslist"
     allowed_domains = ['{search_term}.craigslist.org']
