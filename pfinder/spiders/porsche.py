@@ -137,7 +137,7 @@ class PorscheSpider(BaseProductsSpider):
             elif key == "VIN (Vehicle Identification Number):":
                 vin_code = value
             elif key == "Stock #:":
-                listing_description = value
+                listing_description = "Stock #: " + value
 
             index += 1
 
