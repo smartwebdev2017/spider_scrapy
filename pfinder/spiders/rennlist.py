@@ -69,6 +69,15 @@ class RennlistSpider(BaseProductsSpider):
             model_str = ''
 
         try:
+            trim_str = re.search('<strong>Cont. Porsche Models:</strong>\s(.+?)<br>', content).group(1)
+            if trim_str == '0':
+                trim_str = ''
+        except:
+            trim_str = ''
+
+        model_detail = (model_str + ' ' + trim_str).strip()
+
+        try:
             price_str = re.search('<strong>Price.*?</strong>(.*?)<br>', content).group(1)
             price_str = int(price_str.replace('$', ''))
         except:
@@ -256,7 +265,7 @@ class RennlistSpider(BaseProductsSpider):
                     info['Transmission'] = transmission_str
                     info['DriveTrain'] = wheel_str
                     info['Description'] = description
-                    info['listing_model_detail'] = model_str
+                    info['listing_model_detail'] = model_detail
                     info['listing_transmission'] = transmission_str
                     info['listing_color'] = color_str
                     info['listing_description'] = description
@@ -282,7 +291,7 @@ class RennlistSpider(BaseProductsSpider):
                             info['bs_option_description'] = bs_option_description
                             info['gap_to_msrp'] = int(price_str / float(bsf_data['msrp']) * 100)
                             pcf_id = self.db.insert_parsing_pcf(info)
-                            self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', cont_str, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
+                            self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', model_detail, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
                     else:
                         bs_option_description = ''
                         options = self.db.get_bsf_options(bsf_data[0])
@@ -294,7 +303,7 @@ class RennlistSpider(BaseProductsSpider):
                         info['bs_option_description'] = bs_option_description
                         info['gap_to_msrp'] = int(price_str / float(bsf_data[2]) * 100)
                         pcf_id = self.db.insert_parsing_pcf(info)
-                        self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', cont_str, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
+                        self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', model_detail, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
                 else:
                     result = self.db.parsing_vin(vin_str.upper(), year_str, model_str)
 
@@ -314,7 +323,7 @@ class RennlistSpider(BaseProductsSpider):
                     except Exception as e:
                         info['model_number'] = ''
                     info['model_year'] = ''
-                    info['listing_model_detail'] = model_str
+                    info['listing_model_detail'] = model_detail
                     info['listing_transmission'] = transmission_str
                     info['bs_option_description'] = ''
                     info['listing_color'] = color_str
@@ -327,13 +336,13 @@ class RennlistSpider(BaseProductsSpider):
                     else:
                         print('same %s pcf_id is exist!' % (pcf_id))
 
-                    self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', cont_str, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
+                    self.db.insert_car(site[0], vin_str.upper(), make_str, model_str, '', model_detail, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
             else:
             #if vin[30] == 2:
                     if vin_str == '':
-                        row = self.db.update_car_by_url(vin_str.upper(), make_str, model_str, '', '', year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), 2, active)
+                        row = self.db.update_car_by_url(vin_str.upper(), make_str, model_str, '', model_detail, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), 2, active)
                     else:
-                        row = self.db.update_car_by_id(vin_str.upper(), make_str, model_str, '', '', year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), 2, active, vin)
+                        row = self.db.update_car_by_id(vin_str.upper(), make_str, model_str, '', model_detail, year_str, mileage_str, city, state, posted_date, price_str, condition, dealer_ship, '', color_str, '', transmission_str, '', title, product.get('url'), '', description,  sold_status, cur_time, '', wheel_str, datetime.datetime.now(), 2, active, vin)
                     if row is not None:
                         info['pcf_id'] = row[29]
                         d1 = row[10]
@@ -359,7 +368,7 @@ class RennlistSpider(BaseProductsSpider):
                             info['model_number'] = result['model_number']
                         except Exception as e:
                             info['model_number'] = ''
-                        info['listing_model_detail'] = model_str
+                        info['listing_model_detail'] = model_detail
                         info['listing_transmission'] = transmission_str
                         info['listing_color'] = color_str
                         info['listing_description'] = description

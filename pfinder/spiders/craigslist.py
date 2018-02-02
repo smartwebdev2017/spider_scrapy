@@ -134,7 +134,7 @@ class CraigslistSpider(BaseProductsSpider):
                 listing_year, listing_make, listing_model, listing_trim = match.groups()
                 if listing_model is None:
                     listing_model = ''
-                #listing_trim = listing_model + ' ' + listing_trim
+                listing_model_detail = listing_model + ' ' + listing_trim
 
         except Exception as err:
             print(err)
