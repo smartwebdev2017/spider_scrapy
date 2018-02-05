@@ -24,6 +24,8 @@ import datetime
 
 
 class PorscheSpider(BaseProductsSpider):
+    #crawlera_enabled = True
+    #crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [404]
     name = "porsche"
     allowed_domains = ['{search_term}']
@@ -74,7 +76,7 @@ class PorscheSpider(BaseProductsSpider):
         listing_model = response.xpath('//span[@itemprop="model"]/text()')[0].extract()
         listing_model_detail = listing_model
         city_state = response.xpath('//div[@id="headline"]/h1/small/text()')[0].extract()
-        city_state_match = re.match('Located\sin\s(\w+),\s(\w+)', city_state)
+        city_state_match = re.match('Located\sin\s(.*),\s(.*)', city_state)
         city, state = city_state_match.groups()
         state = STATES[state.lower()]
         listing_title = '{} {} {}'.format(cond_year, listing_make, listing_model)
@@ -98,6 +100,7 @@ class PorscheSpider(BaseProductsSpider):
         listing_description = ''
 
         index = 0
+
         for key_obj in keys_obj:
             key = key_obj.xpath('text()')[0].extract()
             try:
@@ -106,8 +109,13 @@ class PorscheSpider(BaseProductsSpider):
                 value = None
                 print(e)
             if key == 'Price:':
-                listing_price_str = values[index].xpath('strong[@id="vehicle-detail-price"]/text()')[0].extract()
-                listing_price = float(re.sub(r'[^\d.]', '', listing_price_str))
+                try:
+                    listing_price_str = values[index].xpath('strong[@id="vehicle-detail-price"]/text()')[0].extract()
+                    listing_price = float(re.sub(r'[^\d.]', '', listing_price_str))
+                except Exception as e:
+                    index+= 1
+                    listing_price_str = values[index].xpath('strong[@id="vehicle-detail-price"]/text()')[0].extract()
+                    listing_price = float(re.sub(r'[^\d.]', '', listing_price_str))
             elif key == "Condition:":
                 cond = value
                 if cond.lower().find('new') == -1:

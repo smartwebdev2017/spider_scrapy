@@ -32,7 +32,7 @@ print('***** Updating craigslist sold status *****')
 db.update_craigslist_sold_status()
 print('***** Finished craigslist sold status *****')
 db.update_rennlist_older()
-with open('porschedealer.json') as porsche_file:
+with open(PROJECT_PATH+'porschedealer.json') as porsche_file:
     domains = json.load(porsche_file)
 for domain in domains:
     crawl_str = SCRAPY_PATH + ' crawl porsche -a searchterms_str=%s' % (domain['name'])

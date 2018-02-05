@@ -27,7 +27,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1000
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -52,8 +52,8 @@ DOWNLOAD_DELAY = 1000
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-CRAWLERA_ENABLED = True
-CRAWLERA_APIKEY='6c7e115ad3a848d980baac441aa927cc'
+#CRAWLERA_ENABLED = True
+#CRAWLERA_APIKEY='6c7e115ad3a848d980baac441aa927cc'
 CRAWLERA_DOWNLOAD_TIMEOUT = 1000
 DOWNLOADER_MIDDLEWARES = {
 #    'pcarfinder.middlewares.MyCustomDownloaderMiddleware': 543,
@@ -95,5 +95,5 @@ DOWNLOADER_MIDDLEWARES = {
 CONCURRENT_REQUESTS = 5
 CONCURRENT_REQUESTS_PER_DOMAIN = 5
 AUTOTHROTTLE_ENABLED = False
-DOWNLOAD_TIMEOUT = 60000
+DOWNLOAD_TIMEOUT = 1000
 RETRY_HTTP_CODES = [429]
