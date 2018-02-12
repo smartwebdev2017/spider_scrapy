@@ -107,7 +107,7 @@ class PcarfinderDB():
                       "listing_date, price, cond, seller_type, vhr_link, listing_exterior_color, listing_interior_color, listing_transmission, listing_transmission_detail, " \
                       "listing_title, listing_url, listing_engine_size, listing_description, sold_state, sold_date, listing_body_type, listing_drivetrain, created, updated, " \
                       "pcf_id, vdf_id, vhf_id, vin_id, active )" \
-                      "values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) "
+                      "values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,  %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) "
                 self.cursor.execute(sql, (site_id, vin_code, listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, price, cond, seller_type, vhr_link,
                        listing_exterior_color, listing_interior_color, listing_transmission, listing_transmission_detail, listing_title, listing_url, listing_engine_size, listing_description,  sold_state,
                        sold_date, listing_body_type, listing_drivetrain, datetime.datetime.now(), updated, vin_data[0][29], None,None,vin_data[0][33], active))
@@ -190,7 +190,18 @@ class PcarfinderDB():
                 print("%s is updated successfully" % result[1])
             except Exception as e:
                 print(e)
-
+    def update_autotrader_sold_status(self):
+        sql = "select * from api_car  where site_id = 5 and sold_state = 0 and DATE(updated) <= (NOW() - INTERVAL 1 DAY) "
+        self.cursor.execute(sql)
+        results = self.cursor.fetchall()
+        for result in results:
+            sql = "UPDATE api_car SET active = 0, sold_state = %s, sold_date = '%s' WHERE id = %s " %(1, datetime.datetime.now(), result[0])
+            try:
+                self.cursor.execute(sql)
+                self.conn.commit()
+                print("%s is updated successfully" % result[1])
+            except Exception as e:
+                print(e)
     def insert_temp_data(self, vin_id, code, value):
         sql = "INSERT INTO temp (vin_id, code, value) values (%s, '%s', '%s') " % (vin_id, code, value)
 
