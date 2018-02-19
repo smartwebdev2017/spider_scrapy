@@ -43,5 +43,5 @@ print('***** Finished porsche sold status *****')
 crawl_str = SCRAPY_PATH + ' crawl autotrader -a searchterms_str=porsche'
 os.system(crawl_str)
 print('***** Updating autotrader sold status *****')
-db.update_porsche_sold_status()
+db.update_autotrader_sold_status()
 print('***** Finished autotrader sold status *****')

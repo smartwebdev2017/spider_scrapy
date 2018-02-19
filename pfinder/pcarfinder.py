@@ -1210,7 +1210,7 @@ class PcarfinderDB():
         results = self.cursor.fetchall()
 
         for item in results:
-            if item[2] == '':
+            if item[2] == '' and item[1] !='':
                 self.update_listings_pcf(item[0], item[1])
 
     def update_all_pccb(self):
