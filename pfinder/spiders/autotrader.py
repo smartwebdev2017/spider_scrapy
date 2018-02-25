@@ -24,12 +24,14 @@ import datetime
 
 
 class AutotraderSpider(BaseProductsSpider):
-
+    crawlera_enabled = True
+    crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [404]
     name = "autotrader"
     allowed_domains = ['autotrader.com']
 
-    agent = "iphone_ipad': 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_6 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B651 Safari/9537.53",
+    agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:35.0) '\
+            'Gecko/20100101 Firefox/35.0",
 
     current_page = 0
     HOME_URL = 'https://www.autotrader.com'

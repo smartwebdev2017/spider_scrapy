@@ -251,7 +251,7 @@ class CraigslistSpider(BaseProductsSpider):
                                 info['bs_option_description'] = bs_option_description
                                 info['gap_to_msrp'] = int(product['price'] / float(bsf_data['msrp']) * 100)
                                 pcf_id = self.db.insert_parsing_pcf(info)
-                                self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_id, pcf_id, active)
+                                self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), 1, bsf_id, pcf_id, active)
                     else:
                         bs_option_description = ''
                         options = self.db.get_bsf_options(bsf_data[0])
@@ -264,7 +264,7 @@ class CraigslistSpider(BaseProductsSpider):
                         info['gap_to_msrp'] = int(product['price'] / float(bsf_data[2]) * 100)
                         info['pcf_id'] = None
                         pcf_id = self.db.insert_parsing_pcf(info)
-                        self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), bsf_data[0], pcf_id, active)
+                        self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), 1, bsf_data[0], pcf_id, active)
                 else:
                     result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model)
 
@@ -301,12 +301,12 @@ class CraigslistSpider(BaseProductsSpider):
                         pcf_id = self.db.insert_parsing_pcf(info)
                     else:
                         print('same %s pcf_id is exist!' % (pcf_id))
-                    self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), datetime.datetime.now(), None, pcf_id, active)
+                    self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  sold_state, cur_str, '', drive, datetime.datetime.now(), 1, None, pcf_id, active)
             else:
                 if vin_code == '':
-                    row = self.db.update_car_by_url(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), 3, active)
+                    row = self.db.update_car_by_url(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, 1, 3, active)
                 else:
-                    row = self.db.update_car_by_id(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, datetime.datetime.now(), 3, active, vin)
+                    row = self.db.update_car_by_id(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, product['city'], product['state'], product['listing_date'], product['price'], cond, seller_type, '', exterior_color, '', transmission, '', listing_title, product.get('url'), '', description,  0, cur_str, '', drive, 1, 3, active, vin)
                 try:
                     info['pcf_id'] = row[29]
                     d1 = row[10]

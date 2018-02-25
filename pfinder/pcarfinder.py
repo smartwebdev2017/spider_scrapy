@@ -1,4 +1,5 @@
 __author__ = 'root'
+# -*- coding: utf-8 -*-
 import mysql.connector
 from bs4 import BeautifulSoup
 import requests, random
@@ -153,7 +154,7 @@ class PcarfinderDB():
             self.conn.rollback()
 
     def update_carmax_sold_status(self):
-        sql = "select * from api_car  where site_id = 1 and sold_state = 0 and DATE(updated) <= (NOW() - INTERVAL 1 DAY) "
+        sql = "select * from api_car  where site_id = 1 and updated = 0 "
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         for result in results:
@@ -166,7 +167,7 @@ class PcarfinderDB():
                 print(e)
 
     def update_craigslist_sold_status(self):
-        sql = "select * from api_car  where site_id = 3 and sold_state = 0 and DATE(updated) <= (NOW() - INTERVAL 1 DAY) "
+        sql = "select * from api_car  where site_id = 3 and updated = 0 "
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         for result in results:
@@ -179,7 +180,7 @@ class PcarfinderDB():
                 print(e)
 
     def update_porsche_sold_status(self):
-        sql = "select * from api_car  where site_id = 4 and sold_state = 0 and DATE(updated) <= (NOW() - INTERVAL 1 DAY) "
+        sql = "select * from api_car  where site_id = 4 and updated = 0 "
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         for result in results:
@@ -191,7 +192,7 @@ class PcarfinderDB():
             except Exception as e:
                 print(e)
     def update_autotrader_sold_status(self):
-        sql = "select * from api_car  where site_id = 5 and sold_state = 0 and DATE(updated) <= (NOW() - INTERVAL 1 DAY) "
+        sql = "select * from api_car  where site_id = 5 and updated = 0 "
         self.cursor.execute(sql)
         results = self.cursor.fetchall()
         for result in results:
@@ -1273,3 +1274,20 @@ class PcarfinderDB():
         except Exception as e:
             print(e)
             self.conn.rollback()
+
+    def make_spider_initial_flag(self, site_id):
+        sql = "SELECT id FROM api_car WHERE site_id = %s"
+        self.cursor.execute(sql, (site_id,))
+        results = self.cursor.fetchall()
+
+
+        for item in results:
+            sql = "UPDATE api_car SET updated = %s WHERE id=%s" % (0, item[0])
+            try:
+                self.cursor.execute(sql)
+                self.conn.commit()
+
+                print('%s is updated successfully with 0' %(item[0]))
+            except Exception as e:
+                print(e)
+                self.conn.rollback()
