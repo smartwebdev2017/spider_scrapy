@@ -1291,4 +1291,4 @@ class PcarfinderDB():
             except Exception as e:
                 print(e)
                 self.conn.rollback()
-        self.cursor.close()
+	self.cursor.close()

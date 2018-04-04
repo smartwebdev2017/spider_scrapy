@@ -14,5 +14,5 @@ db = PcarfinderDB()
 #db.remove_listings('958')
 #db.update_cond();
 #db.move_listing_date()
-#db.update_listings_by_description()
+db.update_listings_by_description()
 #db.update_all_pccb()
