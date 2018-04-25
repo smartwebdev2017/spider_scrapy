@@ -12,8 +12,8 @@ import re
 import datetime
 
 class RennlistSpider(BaseProductsSpider):
-    #crawlera_enabled = True
-    #crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
+    crawlera_enabled = True
+    crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [524]
 
     name = "rennlist"
@@ -438,7 +438,7 @@ class RennlistSpider(BaseProductsSpider):
             max_pages = 0
         if not current_page:
             current_page = 1
-        if current_page > 4:
+        if current_page > max_pages:
             return
         current_page += 1
         st = meta.get('search_term')

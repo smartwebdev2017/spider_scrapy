@@ -37,7 +37,6 @@ class AutotraderSpider(BaseProductsSpider):
     HOME_URL = 'https://www.autotrader.com'
     SEARCH_URL = 'https://www.autotrader.com/rest/searchresults/sunset/base?zip={zipcode}&startYear=1981&numRecords=25&sortBy=derivedpriceDESC&firstRecord=0&endYear=2019&makeCodeList=POR&searchRadius=50'
     NEXT_PAGE_URL = 'https://www.autotrader.com/rest/searchresults/sunset/base?zip={zipcode}&startYear=1981&numRecords=25&sortBy=derivedpriceDESC&firstRecord={start_index}&endYear=2019&makeCodeList=POR&searchRadius=50'
-
     HEADERS={
             "Accept": "application/json",
             "Accept-Encoding": "gzip, deflate, sdch, br",
@@ -383,12 +382,10 @@ class AutotraderSpider(BaseProductsSpider):
                 model_detail = ''
             st = response.meta['search_term']
             link_zip = product.get('vdpSeoUrl')
-
             try:
                 link = re.search('(.*)&zip', link_zip).group(1)
             except Exception as e:
                 link = link_zip
-
             prod_item = SiteProductItem()
             #
             prod_item['listing_title'] = title
@@ -411,7 +408,7 @@ class AutotraderSpider(BaseProductsSpider):
                     'remaining': sys.maxint,
                 },
                 dont_filter=True,
-                headers={"User-Agent": self.agent}
+                #headers={"User-Agent": self.agent}
             )
             yield req, prod_item
 

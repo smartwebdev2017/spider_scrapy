@@ -35,6 +35,7 @@ class CraigslistSpider(BaseProductsSpider):
     current_page = 1
 
     SEARCH_URL = 'https://{search_term}.craigslist.org/search/cta?auto_make_model=Porsche'
+    PROJECT_PATH = '/home/scott/pfinder/spider_scrapy/pfinder/'
     URL_STATES = {
         'https://{search_term}.craigslist.org/search/cta?auto_make_model=Porsche', 'CA'
     }
@@ -56,7 +57,7 @@ class CraigslistSpider(BaseProductsSpider):
         self.states = {}
         self.state_shortcodes = {}
 
-        with open('city_state.json') as data_file:
+        with open(self.PROJECT_PATH+'city_state.json') as data_file:
             self.city_obj = json.load(data_file)
 
         for item in self.city_obj:
@@ -140,7 +141,7 @@ class CraigslistSpider(BaseProductsSpider):
             print(err)
 
         cur_time = datetime.datetime.now()
-        cur_str = cur_time.strftime('%m-%d-%Y')
+        cur_str = cur_time.date()
         vin_code = ''
         cond = ''
         cylinders = ''
@@ -237,7 +238,8 @@ class CraigslistSpider(BaseProductsSpider):
 
                         if retry_result is None:
                             bsf_data = self.db.getBSinfo(vin_code)
-
+                            print('-------------------------')
+                            print(bsf_data)
                             if bsf_data is not None:
                                 bsf_id = self.db.insert_bsf(vin_code, bsf_data['msrp'], bsf_data['warranty_start'], bsf_data['model_year'], bsf_data['model_detail'], bsf_data['color'], datetime.datetime.strptime(bsf_data['production_month'], '%m/%Y'), bsf_data['interior'])
                                 bs_option_description = ''
