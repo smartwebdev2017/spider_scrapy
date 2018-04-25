@@ -7,6 +7,10 @@ import re
 import datetime
 
 class PcarfinderDB():
+    proxy_host = "proxy.crawlera.com"
+    proxy_port = "8010"
+    proxy_auth = "6c7e115ad3a848d980baac441aa927cc:" # Make sure to include ':' at the end
+    proxies = {"https": "https://{}@{}:{}/".format(proxy_auth, proxy_host, proxy_port), "http": "http://{}@{}:{}/".format(proxy_auth, proxy_host, proxy_port)}
     def __init__(self):
         self.conn = mysql.connector.connect(user='root', password='root', db='test1', host='localhost', charset='utf8', use_unicode=True)
         self.cursor = self.conn.cursor(buffered=True)
@@ -291,7 +295,7 @@ class PcarfinderDB():
         data = {}
         url = 'https://admin.porschedealer.com/reports/build_sheets/print.php?vin=%s'
 
-        res = requests.get(url % vin)
+        res = requests.get(url % vin, proxies=self.proxies, verify=False)
 
         bs = BeautifulSoup(res.content, 'html.parser')
         try:
@@ -344,7 +348,7 @@ class PcarfinderDB():
             elif vehicle_labels[i].text == 'Warranty Start:':
                 data['warranty_start'] = vehicle_values[i].text
 
-            print('%s, %s' %(vehicle_labels[i].text, vehicle_values[i].text))
+            #print('%s, %s' %(vehicle_labels[i].text, vehicle_values[i].text))
 
         options = bs.find('div', {'class':'options'})
         options_labels = options.findAll('div', {'class':'label'})
@@ -818,7 +822,7 @@ class PcarfinderDB():
             if year_code == 'W': year = 2028
             if year_code == 'X': year = 2029
 
-            if model_number == '964' or year_code > 2017:
+            if model_number == '964' or year > 2017:
                 year = year - 30
 
         result = {}
@@ -1175,7 +1179,7 @@ class PcarfinderDB():
                 self.conn.rollback()
 
     def get_same_description_pcf(self, title, description):
-        sql = "SELECT id, listing_description, pcf_id, listing_title FROM api_car WHERE listing_description=%s and listing_title=%s"
+        sql = "SELECT id, listing_description, pcf_id, listing_title FROM api_car WHERE listing_description=%s and listing_title=%s and listing_description <>'' "
         self.cursor.execute(sql, (description,title))
         results = self.cursor.fetchall()
         pcf_id = None

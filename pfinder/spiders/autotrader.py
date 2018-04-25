@@ -35,8 +35,8 @@ class AutotraderSpider(BaseProductsSpider):
 
     current_page = 0
     HOME_URL = 'https://www.autotrader.com'
-    SEARCH_URL = 'https://www.autotrader.com/rest/searchresults/base?zip=94402&startYear=1981&numRecords=25&sortBy=derivedpriceDESC&firstRecord=0&endYear=2019&makeCodeList=POR&searchRadius=0'
-    NEXT_PAGE_URL = 'https://www.autotrader.com/rest/searchresults/base?zip=94402&startYear=1981&numRecords=25&sortBy=derivedpriceDESC&firstRecord={start_index}&endYear=2019&makeCodeList=POR&searchRadius=0'
+    SEARCH_URL = 'https://www.autotrader.com/rest/searchresults/sunset/base?zip={zipcode}&startYear=1981&numRecords=25&sortBy=derivedpriceDESC&firstRecord=0&endYear=2019&makeCodeList=POR&searchRadius=25'
+    NEXT_PAGE_URL = 'https://www.autotrader.com/rest/searchresults/sunset/base?zip={zipcode}&startYear=1981&numRecords=25&sortBy=derivedpriceDESC&firstRecord={start_index}&endYear=2019&makeCodeList=POR&searchRadius=25'
     HEADERS={
             "Accept": "application/json",
             "Accept-Encoding": "gzip, deflate, sdch, br",
@@ -53,6 +53,8 @@ class AutotraderSpider(BaseProductsSpider):
         self.db = PcarfinderDB()
 
         self.total_matches = None
+        self.zipcode = kwargs.get('zipcode')
+        self.SEARCH_URL = self.SEARCH_URL.format(zipcode=self.zipcode)
 
         url_formatter = FormatterWithDefaults(page_num=1)
         super(AutotraderSpider, self).__init__(url_formatter=url_formatter,
@@ -81,7 +83,7 @@ class AutotraderSpider(BaseProductsSpider):
         product['listing_year'] = data['page']['vehicle']['car_year']
         try:
             mileage = data['page']['vehicle']['odometer']
-            mileage = mileage.replace(' mi', '')
+            mileage = mileage.replace(' mi', '').replace(',', '')
         except Exception as e:
             mileage = 0
 
@@ -155,7 +157,8 @@ class AutotraderSpider(BaseProductsSpider):
         listing_make = 'Porsche'
         listing_model = product.get('listing_model')
         try:
-            description = response.xpath('//p[@data-qaid="cntnr-listingDescription"]/text()')[0].extract()
+            description = response.xpath('//p[@data-qaid="cntnr-listingDescription"]//text()').extract()
+            description = "\n".join(description)
         except Exception as e:
             description = ''
         listing_model_detail = product.get('listing_model_detail')
@@ -380,7 +383,7 @@ class AutotraderSpider(BaseProductsSpider):
             st = response.meta['search_term']
             link_zip = product.get('vdpSeoUrl')
             try:
-                link = re.sub('(zip=\d+&)','', link_zip)
+                link = re.search('(.*)&zip',link_zip).group(1)
             except Exception as e:
                 link = link_zip
             prod_item = SiteProductItem()
@@ -405,7 +408,7 @@ class AutotraderSpider(BaseProductsSpider):
                     'remaining': sys.maxint,
                 },
                 dont_filter=True,
-                #headers={"User-Agent": self.agent}
+                headers={"User-Agent": self.agent}
             )
             yield req, prod_item
 
@@ -429,7 +432,7 @@ class AutotraderSpider(BaseProductsSpider):
             return
 
         self.current_page += 1
-        next_page_link = self.NEXT_PAGE_URL.format(start_index = (self.current_page - 1) * 25)
+        next_page_link = self.NEXT_PAGE_URL.format(zipcode = self.zipcode, start_index = (self.current_page - 1) * 25)
 
         return Request(
             url = next_page_link,

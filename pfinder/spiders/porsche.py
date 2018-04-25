@@ -24,8 +24,8 @@ import datetime
 
 
 class PorscheSpider(BaseProductsSpider):
-    #crawlera_enabled = True
-    #crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
+    crawlera_enabled = True
+    crawlera_apikey = '6c7e115ad3a848d980baac441aa927cc'
     handle_httpstatus_list = [404]
     name = "porsche"
     allowed_domains = ['{search_term}']
@@ -68,6 +68,7 @@ class PorscheSpider(BaseProductsSpider):
     def parse_product(self, response):
         cond_year = response.xpath('//div[@id="headline"]/h1/span/text()')[0].extract()
         cond_year_match = re.match('(\D+)\s(\d+)', cond_year)
+        inventory_id = response.xpath('//input[@id="inventory_id"]/@value')[0].extract()
         try:
             cond, listing_year = cond_year_match.groups()
         except Exception as e:
@@ -101,6 +102,12 @@ class PorscheSpider(BaseProductsSpider):
 
         index = 0
 
+        try:
+            vhr = response.xpath('//a[@class="us-experian-link-destkop"]/@href')[0].extract()
+            pass
+        except Exception as e:
+            vhr = ''
+
         for key_obj in keys_obj:
             key = key_obj.xpath('text()')[0].extract()
             try:
@@ -121,7 +128,7 @@ class PorscheSpider(BaseProductsSpider):
                 if cond.lower().find('new') == -1:
                     cond = 'Used'
             elif key == "Mileage:":
-                mileage = value
+                mileage = value.replace(' mi', '').replace(',', '')
             elif key == "Exterior Color:":
                 listing_exterior_color = value
             elif key == "Interior Color:":
@@ -129,7 +136,7 @@ class PorscheSpider(BaseProductsSpider):
             elif key == "Transmission:":
                 listing_transmission_detail = value
 
-                if listing_transmission_detail.lower().find('tiptronic') > -1 or listing_transmission_detail.lower().find('pdk') > -1:
+                if listing_transmission_detail.lower().find('tiptronic') > -1 or listing_transmission_detail.lower().find('pdk') > -1 or listing_transmission_detail.lower().find('auto') > -1:
                     listing_transmission = 'Auto'
                 else:
                     listing_transmission = 'Manual'
@@ -148,6 +155,8 @@ class PorscheSpider(BaseProductsSpider):
                 listing_description = "Stock #: " + value
 
             index += 1
+
+        listing_url = self.HOME_URL.format(search_term=response.meta['search_term']) + "/inventory/" + cond.lower() + "/" + inventory_id
 
         if vin_code == '':
             vin = self.db.check_vin_by_url(listing_url)
@@ -207,7 +216,7 @@ class PorscheSpider(BaseProductsSpider):
                                 info['bs_option_description'] = bs_option_description
                                 info['gap_to_msrp'] = int(listing_price / float(bsf_data['msrp']) * 100)
                                 pcf_id = self.db.insert_parsing_pcf(info)
-                                self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, '', listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  sold_state, None, '', listing_drivetrain, datetime.datetime.now(), 1, bsf_id, pcf_id, active)
+                                self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, vhr, listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  sold_state, None, '', listing_drivetrain, datetime.datetime.now(), 1, bsf_id, pcf_id, active)
                     else:
                         bs_option_description = ''
                         options = self.db.get_bsf_options(bsf_data[0])
@@ -220,7 +229,7 @@ class PorscheSpider(BaseProductsSpider):
                         info['gap_to_msrp'] = int(listing_price / float(bsf_data[2]) * 100)
                         info['pcf_id'] = None
                         pcf_id = self.db.insert_parsing_pcf(info)
-                        self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, '', listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  sold_state, None, '', listing_drivetrain, datetime.datetime.now(), 1, bsf_data[0], pcf_id, active)
+                        self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, vhr, listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  sold_state, None, '', listing_drivetrain, datetime.datetime.now(), 1, bsf_data[0], pcf_id, active)
                 else:
                     result = self.db.parsing_vin(vin_code.upper(), listing_year, listing_model)
 
@@ -257,12 +266,12 @@ class PorscheSpider(BaseProductsSpider):
                         pcf_id = self.db.insert_parsing_pcf(info)
                     else:
                         print('same %s pcf_id is exist!' % (pcf_id))
-                    self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, '', listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  sold_state, None, '', listing_drivetrain, datetime.datetime.now(), 1, None, pcf_id, active)
+                    self.db.insert_car(site[0], vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, vhr, listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  sold_state, None, '', listing_drivetrain, datetime.datetime.now(), 1, None, pcf_id, active)
             else:
                 if vin_code == '':
-                    row = self.db.update_car_by_url(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, '', listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  0, cur_str, '', listing_drivetrain, 1, site[0], active)
+                    row = self.db.update_car_by_url(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, vhr, listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  0, cur_str, '', listing_drivetrain, 1, site[0], active)
                 else:
-                    row = self.db.update_car_by_id(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, '', listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  0, cur_str, '', listing_drivetrain, 1, site[0], active, vin)
+                    row = self.db.update_car_by_id(vin_code.upper(), listing_make, listing_model, listing_trim, listing_model_detail, listing_year, mileage, city, state, listing_date, listing_price, cond, seller_type, vhr, listing_exterior_color, '', listing_transmission, listing_transmission_detail, listing_title, listing_url, '', listing_description,  0, cur_str, '', listing_drivetrain, 1, site[0], active, vin)
                 try:
                     info['pcf_id'] = row[29]
                     d1 = row[10]

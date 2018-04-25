@@ -29,7 +29,7 @@ class CraigslistSpider(BaseProductsSpider):
     name = "craigslist"
     allowed_domains = ['{search_term}.craigslist.org']
 
-    agent = "iphone_ipad': 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_6 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B651 Safari/9537.53",
+    agent = "iphone_ipad: Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_6 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B651 Safari/9537.53",
 
     #HOME_URL = "https://www.carmax.com"
     current_page = 1
